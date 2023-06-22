@@ -1,0 +1,32 @@
+<mat-card>
+    <mat-card-content class="user-detail-header">
+        <img class="user-detail-image" src="./assets/img/avatar.png" alt="">
+        <div class="user-details">
+            <h2>
+                {{user.firstName}}
+                {{user.lastName}}
+            </h2>
+            
+            <br>
+            {{user.email}}
+        </div>
+    </mat-card-content>
+</mat-card>
+
+
+<mat-card class="mt-32">
+    <button mat-icon-button class="pin-right-upper-corner" (click)="openAdressDialog()">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    <mat-card-header>
+        <mat-card-title>
+        {{user.firstName}}
+        {{user.lastName}}
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        {{user.street}} <br>
+        {{user.zipCode}} {{user.city}}
+    </mat-card-content>
+</mat-card>
