@@ -12,15 +12,20 @@ import { Firestore, collection, doc, updateDoc } from '@angular/fire/firestore';
 })
 export class DialogEditAddressComponent {
   user!: User;
-  loading!: false;
+  loading: boolean = false;
   userId: string | undefined;
 
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firestore: Firestore) { }
 
   saveUser() {
+    this.loading = true;
     let usersCollection = collection(this.firestore, 'users');
     let userDoc = doc(usersCollection, this.userId);
-    updateDoc(userDoc, this.user.toJSON());
+    updateDoc(userDoc, this.user.toJSON())
+    .then(() =>{
+      this.loading = false;
+      this.dialogRef.close();
+    })
   }
 
 }

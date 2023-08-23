@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
@@ -31,6 +27,12 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MbscModule } from '@mobiscroll/angular';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -40,9 +42,11 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     DialogAddUserComponent,
     UserDetailsComponent,
     DialogEditAddressComponent,
-    DialogEditUserComponent
+    DialogEditUserComponent,
+    CalendarComponent
   ],
-  imports: [
+  imports: [  
+    MbscModule, 
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -60,6 +64,12 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     MatProgressBarModule,
     MatCardModule,
     MatMenuModule,
+    FullCalendarModule,
+    MbscModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),

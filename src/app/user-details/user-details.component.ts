@@ -41,7 +41,6 @@ export class UserDetailsComponent {
       console.log('Retrieved User', this.user);
     });
 
-    debugger;
   }
 
   editMenu(){

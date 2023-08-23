@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { User } from 'src/models/user.class';
-import { inject } from '@angular/core';
-import { Firestore, collectionData, collection, addDoc } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+
+import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+
 import { MatDialogRef } from '@angular/material/dialog';
 
 
@@ -17,7 +17,9 @@ export class DialogAddUserComponent {
   birthDate!: Date;
   loading = false;
 
-  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firestore: Firestore){}
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firestore: Firestore){
+    this.birthDate = new Date(); // Zum Beispiel hier initialisieren
+  }
 
   saveUser(){
     this.user.birthDate = this.birthDate.getTime();
