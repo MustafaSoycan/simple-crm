@@ -33,6 +33,8 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MbscModule } from '@mobiscroll/angular';
 import { AppComponent } from './app.component';
+import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
+import { NotesComponent } from './notes/notes.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { AppComponent } from './app.component';
     UserDetailsComponent,
     DialogEditAddressComponent,
     DialogEditUserComponent,
-    CalendarComponent
+    CalendarComponent,
+    LegalNoticeComponent,
+    NotesComponent
   ],
   imports: [  
     MbscModule, 

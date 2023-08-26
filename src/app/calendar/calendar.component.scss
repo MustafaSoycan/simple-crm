@@ -1,3 +1,15 @@
+html{
+    background-color: #5ac8fa !important;
+}
+
+.headline{
+    font-size: 48px;
+    color: rgb(63,81,181);
+    margin-top: 16px;
+    margin-bottom: 16px !important;
+    font-weight:550;
+}
+
 .event-color-c {
     display: flex;
     margin: 16px;
@@ -60,3 +72,4 @@
 .crud-color-c.selected .crud-color:before {
     display: block;
 }
+
