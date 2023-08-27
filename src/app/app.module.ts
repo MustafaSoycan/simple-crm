@@ -35,6 +35,7 @@ import { MbscModule } from '@mobiscroll/angular';
 import { AppComponent } from './app.component';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 import { NotesComponent } from './notes/notes.component';
+import { DialogAddNoteComponent } from './dialog-add-note/dialog-add-note.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { NotesComponent } from './notes/notes.component';
     DialogEditUserComponent,
     CalendarComponent,
     LegalNoticeComponent,
-    NotesComponent
+    NotesComponent,
+    DialogAddNoteComponent
   ],
   imports: [  
     MbscModule, 

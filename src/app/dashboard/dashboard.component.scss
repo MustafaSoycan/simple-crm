@@ -6,25 +6,10 @@
     font-weight:550;
 }
 
-.dashboard{
-    display: flex;
-    justify-content: space-between;
+.dashboard-information{
+    border: 6px solid rgb(63,81,181);
+    padding: 16px;
+    background-color: white;
 }
 
-.dashboard-bubble{
-    height: 20vh;
-    width: 20vw;
-    background-color: aqua;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 32px;
-    font-weight: 400;
-
-    &:hover{
-        background-color: rgb(27, 131, 131);
-        cursor: pointer;
-    }
-}

@@ -1,11 +1,33 @@
 <h2 class="headline">Notes</h2>
 
+<div class="notes-information">
 
-<div>
-    <input type="text" [(ngModel)]="newNote" placeholder="Notiz eingeben" />
-    <button (click)="addNote()">Notiz hinzufügen</button>
+  <h2> <b> Welcome to the Notes Page of my CRM System! </b> </h2>
+
+  <b>Welcome to the Notes feature of our CRM system! This tool lets you jot down and manage notes effortlessly. Here's a
+  quick guide on how to use it:</b> <br> <br>
+
+  <b>Adding Notes:</b> <br>
+  In the provided input field, type your note. This could be any important information or reminder. After writing your note, click the "Add Note" button. Your note will now appear on the page.<br>
+
+  <b>Viewing Notes:</b> <br>
+  You'll see a list of your added notes on the page. The most recent notes will be at the end.<br>
+
+  <b>Deleting Notes:</b> <br>
+  To remove a note, click the "Delete Note" button in the note you want to delete.<br> <br>
+
+  <b>If you need help or have questions, don't hesitate to ask.
+  Happy noting!</b>
+</div>
+
+<div class="add-note-container">
+  <button class="add-notes-button" (click)="openDialog()">Add Note</button>
+</div>
+
+<div class="notes-container">
+  <div class="note" *ngFor="let note of notes">
+    {{ note.title }}
+    {{ note.description }}
+    <button class="delete-note-button">Delete Note</button>
   </div>
-  <div *ngFor="let note of notes; let i = index" class="note">
-    {{ note }}
-    <button (click)="deleteNote(i)">Löschen</button>
-  </div>
+</div>

@@ -46,43 +46,7 @@ export class CalendarComponent implements OnInit{
   selectedColor = '';
   colorAnchor: HTMLElement | undefined;
   colors = ['#ffeb3c', '#ff9900', '#f44437', '#ea1e63', '#9c26b0', '#3f51b5', '', '#009788', '#4baf4f', '#7e5d4e'];
-  myEvents: MbscCalendarEvent[] = [{
-      id: 1,
-      start: '2023-08-08T13:00',
-      end: '2023-08-08T13:45',
-      title: 'Lunch @ Butcher\'s',
-      description: '',
-      allDay: false,
-      free: true,
-      color: '#009788'
-  }, {
-      id: 2,
-      start: '2023-08-23T15:00',
-      end: '2023-08-23T16:00',
-      title: 'General orientation',
-      description: '',
-      allDay: false,
-      free: false,
-      color: '#ff9900'
-  }, {
-      id: 3,
-      start: '2023-08-22T18:00',
-      end: '2023-08-22T22:00',
-      title: 'Dexter BD',
-      description: '',
-      allDay: false,
-      free: true,
-      color: '#3f51b5'
-  }, {
-      id: 4,
-      start: '2023-08-24T10:30',
-      end: '2023-08-24T11:30',
-      title: 'Stakeholder mtg.',
-      description: '',
-      allDay: false,
-      free: false,
-      color: '#f44437'
-  }];
+  myEvents: MbscCalendarEvent[] = [];
   tempEvent!: MbscCalendarEvent;
   calendarOptions: MbscEventcalendarOptions = {
       clickToCreate: 'double',
@@ -246,23 +210,27 @@ export class CalendarComponent implements OnInit{
     localStorage.setItem('myEvents', JSON.stringify(this.myEvents));
   }
   deleteEvent(event: MbscCalendarEvent): void {
-      this.myEvents = this.myEvents.filter(item => item.id !== event.id);
-      this.notify.snackbar({
-          button: {
-              action: () => {
-                  this.myEvents = [...this.myEvents, event];
-              },
-              text: 'Undo'
-          },
-          message: 'Event deleted'
-      });
-      // here you can delete the event from your storage as well
-      // ...
-  }
-  onDeleteClick(): void {
-      this.deleteEvent(this.tempEvent);
-      this.popup.close();
-  }
+    this.myEvents = this.myEvents.filter(item => item.id !== event.id);
+
+    // Event aus dem Local Storage entfernen
+    localStorage.setItem('myEvents', JSON.stringify(this.myEvents));
+
+    this.notify.snackbar({
+        button: {
+            action: () => {
+                this.myEvents = [...this.myEvents, event];
+                // Event im Local Storage wiederherstellen
+                localStorage.setItem('myEvents', JSON.stringify(this.myEvents));
+            },
+            text: 'Undo'
+        },
+        message: 'Event deleted'
+    });
+}
+onDeleteClick(): void {
+    this.deleteEvent(this.tempEvent);
+    this.popup.close();
+}
 
   selectColor(color: string): void {
       this.tempColor = color;

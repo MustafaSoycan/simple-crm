@@ -1,18 +1,41 @@
 <h1 class="headline">Calendar</h1>
 
+<div class="calendar-information">
+    <h2> <b> Welcome to the Calendar! </b> </h2>
+
+    <b>Welcome to the Calendar feature of our CRM system! Adding events is easy - just follow these steps:</b> <br> <br>
+
+    <b>Adding an Event:</b> <br>
+    Double-click on the desired date where you want to add the event.<br>
+
+    <b>Event Details:</b> <br>
+    A pop-up will appear. Enter the event's details, such as the title, description and time.<br>
+
+    <b>Saving the Event:</b> <br>
+    Click "Save" to add the event to the calendar.<br> <br>
+
+    <b>That's it! You've successfully added an event using the double-click function on the calendar. If you have any
+    questions, feel free to ask.</b>
+</div>
+
+
+
 <br>
 <br>
 
 <mbsc-eventcalendar [data]="myEvents" [options]="calendarOptions" [(selectedDate)]="calendarSelectedDate">
 </mbsc-eventcalendar>
-<mbsc-popup [options]="popupOptions" [anchor]="popupAnchor" [buttons]="popupButtons" [headerText]="popupHeaderText" #popup>
+<mbsc-popup [options]="popupOptions" [anchor]="popupAnchor" [buttons]="popupButtons" [headerText]="popupHeaderText"
+    #popup>
     <div class="mbsc-form-group">
         <mbsc-input label="Title" [(ngModel)]="popupEventTitle"></mbsc-input>
         <mbsc-textarea label="Description" [(ngModel)]="popupEventDescription"></mbsc-textarea>
     </div>
     <div class="mbsc-form-group">
         <mbsc-switch label="All-day" [(ngModel)]="popupEventAllDay"></mbsc-switch>
-        <mbsc-datepicker [(ngModel)]="popupEventDates" [options]="datePickerOptions" [controls]="popupEventAllDay ? datePickerControls : datetimePickerControls" [responsive]="popupEventAllDay ? datePickerResponsive : datetimePickerResponsive" [startInput]="startInput"
+        <mbsc-datepicker [(ngModel)]="popupEventDates" [options]="datePickerOptions"
+            [controls]="popupEventAllDay ? datePickerControls : datetimePickerControls"
+            [responsive]="popupEventAllDay ? datePickerResponsive : datetimePickerResponsive" [startInput]="startInput"
             [endInput]="endInput"></mbsc-datepicker>
         <mbsc-input #startInput label="Starts"></mbsc-input>
         <mbsc-input #endInput label="Ends"></mbsc-input>
@@ -20,12 +43,11 @@
             <div class="event-color-label">Color</div>
             <div class="event-color" [ngStyle]="{background: selectedColor}"></div>
         </div>
-        <mbsc-segmented-group [(ngModel)]="popupEventStatus">
-            <mbsc-segmented value="busy">Show as busy</mbsc-segmented>
-            <mbsc-segmented value="free">Show as free</mbsc-segmented>
-        </mbsc-segmented-group>
+       
+    
         <div *ngIf="isEdit" class="mbsc-button-group">
-            <mbsc-button class="mbsc-button-block" color="danger" variant="outline" (click)="onDeleteClick()">Delete event
+            <mbsc-button class="mbsc-button-block" color="danger" variant="outline" (click)="onDeleteClick()">Delete
+                event
             </mbsc-button>
         </div>
     </div>
@@ -34,15 +56,19 @@
 <mbsc-popup [options]="colorOptions" [anchor]="colorAnchor" #colorPicker>
     <div class="crud-color-row">
         <div *ngFor="let color of colors;let i=index">
-            <div *ngIf="i<5" class="crud-color-c" [ngClass]="{'selected': tempColor === color}" [attr.data-value]="color" (click)="changeColor($event)">
-                <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check" [ngStyle]="{background: color}"></div>
+            <div *ngIf="i<5" class="crud-color-c" [ngClass]="{'selected': tempColor === color}"
+                [attr.data-value]="color" (click)="changeColor($event)">
+                <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                    [ngStyle]="{background: color}"></div>
             </div>
         </div>
     </div>
     <div class="crud-color-row">
         <div *ngFor="let color of colors;let i=index">
-            <div *ngIf="i>=5" class="crud-color-c" [ngClass]="{'selected': tempColor === color}" [attr.data-value]="color" (click)="changeColor($event)">
-                <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check" [ngStyle]="{background: color}"></div>
+            <div *ngIf="i>=5" class="crud-color-c" [ngClass]="{'selected': tempColor === color}"
+                [attr.data-value]="color" (click)="changeColor($event)">
+                <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                    [ngStyle]="{background: color}"></div>
             </div>
         </div>
     </div>
@@ -50,5 +76,3 @@
 
 <br>
 <br>
-
-<h2>ADD EVENT BY DOUBLE CLICK ON DATE</h2>

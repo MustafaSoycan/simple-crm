@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAddNoteComponent } from '../dialog-add-note/dialog-add-note.component';
 
 @Component({
   selector: 'app-notes',
@@ -6,30 +9,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes.component.scss']
 })
 export class NotesComponent implements OnInit {
-  notes: string[] = [];
-  newNote: string = '';
 
-  ngOnInit() {
-    const savedNotes = localStorage.getItem('notes');
-    if (savedNotes) {
-      this.notes = JSON.parse(savedNotes);
-    }
+  notes: any;
+
+  constructor(public dialog: MatDialog, private firestore: Firestore) { }
+
+
+  ngOnInit(): void {
+    let notesCollection = collection(this.firestore, 'notes');
+
+    collectionData(notesCollection, { idField: 'id' }).subscribe(notes => {
+      this.notes = notes;
+      console.log('Notes have been updated :)', notes)
+    })
   }
 
-  addNote() {
-    if (this.newNote.trim() !== '') {
-      this.notes.push(this.newNote);
-      this.newNote = '';
-      this.saveNotesToLocalStorage();
-    }
+  openDialog(){
+    this.dialog.open(DialogAddNoteComponent);
   }
 
-  deleteNote(index: number) {
-    this.notes.splice(index, 1);
-    this.saveNotesToLocalStorage();
-  }
-
-  private saveNotesToLocalStorage() {
-    localStorage.setItem('notes', JSON.stringify(this.notes));
-  }
 }

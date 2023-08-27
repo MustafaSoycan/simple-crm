@@ -6,8 +6,15 @@ html{
     font-size: 48px;
     color: rgb(63,81,181);
     margin-top: 16px;
-    margin-bottom: 16px !important;
+    margin-bottom: 32px;
     font-weight:550;
+}
+
+.calendar-information{
+    padding: 16px;
+    border: 6px solid rgb(63,81,181);
+    background-color: white;
+    margin-bottom: 32px;
 }
 
 .event-color-c {
