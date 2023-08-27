@@ -1,13 +1,23 @@
 .headline{
+    display: flex;
+    align-items: center;
+
+
     font-size: 48px;
     color: rgb(63,81,181);
     margin-top: 16px;
     margin-bottom: 32px;
     font-weight:550;
+
+    img{
+        margin-left: 16px;
+        height: 65px;
+    }
 }
 
 .legal-notice{
-    padding: 16px;
-    border: 6px solid rgb(63,81,181);
+    padding: 32px;
+    border: 15px solid rgb(63,81,181);
+    border-radius: 10px;
     background-color: white;
 }

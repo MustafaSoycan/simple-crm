@@ -3,16 +3,24 @@ html{
 }
 
 .headline{
+    display: flex;
+    align-items: center;
+
     font-size: 48px;
     color: rgb(63,81,181);
     margin-top: 16px;
     margin-bottom: 32px;
     font-weight:550;
+
+    img{
+        margin-left: 16px;
+        height: 70px;
+    }
 }
 
 .calendar-information{
     padding: 16px;
-    border: 6px solid rgb(63,81,181);
+    border: 15px solid rgb(63,81,181);
     background-color: white;
     margin-bottom: 32px;
 }

@@ -9,7 +9,7 @@ import { Firestore, collection, getCountFromServer } from '@angular/fire/firesto
 export class DashboardComponent implements OnInit {
   userCount: number = 0;
   noteCount: number = 0;
-
+  currentTime: Date = new Date();
   constructor(private firestore: Firestore) { }
 
   async ngOnInit(): Promise<void> {
@@ -24,5 +24,15 @@ export class DashboardComponent implements OnInit {
     const notesSnapshot = await getCountFromServer(notesCollection)
     console.log('count: ', notesSnapshot.data().count);
     this.noteCount = notesSnapshot.data().count;
+
+
+
+    this.updateTime();
+    setInterval(() => this.updateTime(), 1000);
+  }
+
+
+  updateTime(): void {
+    this.currentTime = new Date();
   }
 }

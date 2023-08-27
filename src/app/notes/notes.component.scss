@@ -1,14 +1,23 @@
 .headline {
+    display: flex;
+    align-items: center;
+
+
     font-size: 48px;
     color: rgb(63, 81, 181);
     margin-top: 16px;
     margin-bottom: 32px;
     font-weight: 550;
+
+    img{
+        margin-left: 16px;
+        height: 70px;
+    }
 }
 
 .notes-information {
     padding: 16px;
-    border: 6px solid rgb(63, 81, 181);
+    border: 15px solid rgb(63,81,181);
     background-color: white;
     margin-bottom: 32px;
 }
@@ -29,14 +38,18 @@
 }
 
 .add-notes-button {
-    height: 40px;
+    height: 60px;
+    width: 100%;
     color: white;
+    font-size: 32px;
     font-weight: bold;
-    background-color: rgb(63, 81, 181);
+    background-color: rgb(70, 89, 131);
     border: unset;
+    margin-bottom: 64px;
+    
     &:hover {
         cursor: pointer;
-        background-color: rgb(88, 108, 223);
+        background-color: rgb(73, 93, 204);
     }
 }
 
@@ -48,12 +61,17 @@
 .note {
     width: 10vw;
     padding: 16px;
-    border: 4px solid rgb(63, 81, 181);
+    border: 15px solid rgb(63, 81, 181);
+    border-radius: 10px;
     background-color: white;
     aspect-ratio: 1;
     margin-right: 16px;
     margin-bottom: 16px;
     color: black;
+
+    font-size: 24px;
+    font-weight: bold;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -61,14 +79,15 @@
 
 .delete-note-button{
     
-        height: 20px;
+        height: 30px;
         color: white;
+        font-size: 16px;
         font-weight: bold;
-        background-color: rgb(63, 81, 181);
+        background-color: rgb(206, 29, 29);
         border: unset;
         &:hover {
             cursor: pointer;
-            background-color: rgb(88, 108, 223);
+            background-color: rgb(145, 16, 16);
         }
     
 }
