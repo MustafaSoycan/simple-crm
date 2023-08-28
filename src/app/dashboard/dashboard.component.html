@@ -1,6 +1,11 @@
-<h1 class="headline">Dashboard <img src="assets/img/dashboard.png" alt="picture of dashboard-icon"></h1>
+<div class="header-container">
+  <h1 class="headline">Dashboard <img src="assets/img/dashboard.png" alt="picture of dashboard-icon"></h1>
+  <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png" alt="picture of question mark">
+</div>
 
-<div class="dashboard-information">
+
+
+<div class="dashboard-information" *ngIf="showInstructions">
     <h2> <b> Welcome to the CRM Dashboard! </b> </h2>
 
     <b>Welcome to my dashboard! Here, you can track the number of users and notes. ( Beta Version )</b> <br> <br>
@@ -16,11 +21,19 @@
 
 
     <div class="digital-clock">
-        <p class="time">{{ currentTime | date: 'hh:mm:ss a'}} <img src="assets/img/clock.png"> </p>
+        <p class="time">{{ currentTime | date: 'hh:mm:ss a'}} </p>
       </div>
 
     <div class="note-dashboard">
         <p>CURRENT NOTES:</p>
         <p class="note-number">{{ noteCount }}</p>
     </div>
+  </div>
+
+
+  <div class="dashboard-two">
+    <div class="note-dashboard">
+      <p>CURRENT EVENTS:</p>
+      <p class="event-number">?</p>
+  </div>
   </div>

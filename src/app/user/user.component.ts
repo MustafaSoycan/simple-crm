@@ -12,6 +12,7 @@ export class UserComponent {
 
 
   users: any;
+  showInstructions: boolean = false; // Neue Variable hinzugefügt
 
   constructor(public dialog: MatDialog, private firestore: Firestore) { }
 
@@ -26,5 +27,9 @@ export class UserComponent {
 
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
+  }
+
+  toggleInstructions() {
+    this.showInstructions = !this.showInstructions;
   }
 }

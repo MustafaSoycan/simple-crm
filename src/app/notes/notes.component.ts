@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, deleteDoc, doc } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddNoteComponent } from '../dialog-add-note/dialog-add-note.component';
 
@@ -11,6 +11,7 @@ import { DialogAddNoteComponent } from '../dialog-add-note/dialog-add-note.compo
 export class NotesComponent implements OnInit {
 
   notes: any;
+  showInstructions: boolean = false; // Neue Variable hinzugefügt
 
   constructor(public dialog: MatDialog, private firestore: Firestore) { }
 
@@ -28,4 +29,20 @@ export class NotesComponent implements OnInit {
     this.dialog.open(DialogAddNoteComponent);
   }
 
+  toggleInstructions() {
+    this.showInstructions = !this.showInstructions;
+  }
+
+  deleteNote(noteId: string) {
+    const noteDocRef = doc(this.firestore, 'notes', noteId);
+
+    deleteDoc(noteDocRef)
+      .then(() => {
+        console.log('Note deleted successfully');
+        this.notes = this.notes.filter((note: any) => note.id !== noteId);
+      })
+      .catch((error) => {
+        console.error('Error deleting note:', error);
+      });
+  }
 }

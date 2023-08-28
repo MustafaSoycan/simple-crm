@@ -12,7 +12,7 @@ import {
 
 setOptions({
   locale: localeDe,
-  theme: 'ios',
+  theme: 'windows',
   themeVariant: 'light'
 });
 
@@ -22,8 +22,14 @@ setOptions({
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
 })
+
+
+
 export class CalendarComponent implements OnInit{
   constructor(private notify: Notifications) {}
+
+  showInstructions: boolean = false; // Neue Variable hinzugefügt
+  
   ngOnInit(): void {
     const storedEvents = localStorage.getItem('myEvents');
     if (storedEvents) {
@@ -250,6 +256,12 @@ onDeleteClick(): void {
           this.selectedColor = color;
           this.colorPicker.close();
       }
+  }
+
+
+
+  toggleInstructions() {
+    this.showInstructions = !this.showInstructions;
   }
 }
 

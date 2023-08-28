@@ -1,6 +1,11 @@
-<h1 class="headline">Calendar <img src="assets/img/calendar.png" alt="picture of calendar-icon"></h1>
+<div class="header-container">
+    <h1 class="headline">Calendar <img src="assets/img/calendar.png" alt="picture of calendar-icon"></h1>
+    <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png" alt="picture of question mark">
+</div>
 
-<div class="calendar-information">
+
+
+<div class="calendar-information" *ngIf="showInstructions">
     <h2> <b> Welcome to the Calendar! </b> </h2>
 
     <b>Welcome to the Calendar feature of our CRM system! Adding events is easy - just follow these steps:</b> <br> <br>
@@ -28,8 +33,8 @@
 <mbsc-popup [options]="popupOptions" [anchor]="popupAnchor" [buttons]="popupButtons" [headerText]="popupHeaderText"
     #popup>
     <div class="mbsc-form-group">
-        <mbsc-input label="Title" [(ngModel)]="popupEventTitle"></mbsc-input>
-        <mbsc-textarea label="Description" [(ngModel)]="popupEventDescription"></mbsc-textarea>
+        <mbsc-input label="Title" [(ngModel)]="popupEventTitle" placeholder="enter your title here"></mbsc-input>
+        <mbsc-textarea label="Description" [(ngModel)]="popupEventDescription" placeholder="Enter your description here"></mbsc-textarea>
     </div>
     <div class="mbsc-form-group">
         <mbsc-switch label="All-day" [(ngModel)]="popupEventAllDay"></mbsc-switch>

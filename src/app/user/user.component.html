@@ -1,7 +1,12 @@
-<h1 class="headline">Customer Overview <img src="assets/img/user.png" alt="picture of user-icon"></h1>
+<div class="header-container">
+  <h1 class="headline">Customer Overview <img src="assets/img/user.png" alt="picture of user-icon"></h1>
+  <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png" alt="picture of question mark">
+</div>
 
-<div class="customer-information">
 
+
+
+<div class="customer-information" *ngIf="showInstructions">
   <h2> <b> Welcome to the Customer Overview page of my CRM system! </b> </h2>
 
   
@@ -21,7 +26,6 @@
   If you need to update any information for a specific contact, simply click on their name in the list. This action will
   take you to an editable view of their details. Here, you can make changes, corrections, or updates as necessary. Don't
   forget to hit "Save" after making your edits.<br>
- 
   </div>
 
 

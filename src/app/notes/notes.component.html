@@ -1,6 +1,11 @@
-<h2 class="headline">Notes <img src="assets/img/note.png" alt="picture of note-icon"></h2>
+<div class="header-container">
+  <h2 class="headline">Notes <img src="assets/img/note.png" alt="picture of note-icon"></h2>
+  <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png" alt="picture of question mark">
+</div>
 
-<div class="notes-information">
+
+
+<div class="notes-information" *ngIf="showInstructions">
 
   <h2> <b> Welcome to the Notes Page of my CRM System! </b> </h2>
 
@@ -23,10 +28,12 @@
   <button class="add-notes-button" (click)="openDialog()">+ Add Note</button>
 </div>
 
-<div class="notes-container">
+<div class="notes-board">
+
   <div class="note" *ngFor="let note of notes">
-    {{ note.title }}
-    {{ note.description }}
-    <button class="delete-note-button">Delete Note</button>
+    <p class="note-title">{{ note.title }}</p>
+    <p class="note-description">{{ note.description }}</p>
+    <button  (click)="deleteNote(note.id)" mat-stroked-button color="warn">Delete Note</button>
   </div>
+
 </div>

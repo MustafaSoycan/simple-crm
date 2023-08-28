@@ -1,3 +1,9 @@
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .headline {
     display: flex;
     align-items: center;
@@ -5,7 +11,7 @@
     font-size: 48px;
     color: rgb(63, 81, 181);
     margin-top: 16px;
-    margin-bottom: 32px;
+    margin-bottom: 10vh;
     font-weight: 550;
 
     img {
@@ -19,16 +25,18 @@
     border-radius: 10px;
     padding: 16px;
     background-color: white;
-    margin-bottom: 128px;
+    margin-bottom: 64px;
 }
 
 .dashboard {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-
+    margin-bottom: 10vh;
+    
+    
     .digital-clock {
-        border: 15px solid black;
+        border: 10px solid black;
         border-radius: 10px;
         padding: 48px;
         display: flex;
@@ -44,7 +52,12 @@
             color: black;
         }
     }
+}
 
+.dashboard-two{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .user-dashboard {
@@ -113,4 +126,17 @@
 
 
 
+}
+
+.question-mark{
+    height: 60px;
+    width: 60px;
+
+    margin-left: 16px;
+    margin-bottom: 32px;
+
+    &:hover{
+        cursor: pointer;
+        opacity: 0.9;
+    }
 }

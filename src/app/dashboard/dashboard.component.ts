@@ -10,6 +10,10 @@ export class DashboardComponent implements OnInit {
   userCount: number = 0;
   noteCount: number = 0;
   currentTime: Date = new Date();
+
+  showInstructions: boolean = true; // Neue Variable hinzugefügt
+
+
   constructor(private firestore: Firestore) { }
 
   async ngOnInit(): Promise<void> {
@@ -34,5 +38,9 @@ export class DashboardComponent implements OnInit {
 
   updateTime(): void {
     this.currentTime = new Date();
+  }
+
+  toggleInstructions() {
+    this.showInstructions = !this.showInstructions;
   }
 }
