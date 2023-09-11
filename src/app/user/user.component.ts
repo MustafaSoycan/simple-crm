@@ -9,8 +9,8 @@ import { Firestore, collection, collectionData, updateDoc } from '@angular/fire/
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent {
-
-
+  searchQuery: string = '';
+  filteredUsers: any;
   users: any;
   showInstructions: boolean = false; // Neue Variable hinzugefügt
 
@@ -21,6 +21,7 @@ export class UserComponent {
 
     collectionData(usersCollection, { idField: 'id' }).subscribe(users => {
       this.users = users;
+      this.performSearch(); // Hier den Filter aufrufen
       console.log('Users have been updated :)', users)
     })
   }
@@ -31,5 +32,20 @@ export class UserComponent {
 
   toggleInstructions() {
     this.showInstructions = !this.showInstructions;
+  }
+  
+
+
+
+  performSearch() {
+    if (this.searchQuery.trim() === '') {
+      this.filteredUsers = this.users;
+    } else {
+      const query = this.searchQuery.toLowerCase();
+      this.filteredUsers = this.users.filter((user: any) =>
+        user.firstName.toLowerCase().includes(query) ||
+        user.lastName.toLowerCase().includes(query)
+      );
+    }
   }
 }

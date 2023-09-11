@@ -45,4 +45,9 @@ export class NotesComponent implements OnInit {
         console.error('Error deleting note:', error);
       });
   }
+
+
+  editMenu(){
+    
+  }
 }

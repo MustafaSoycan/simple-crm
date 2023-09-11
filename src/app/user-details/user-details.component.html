@@ -1,47 +1,136 @@
+<div class="button-container">
+  <button routerLink="/user" class="back-button" mat-raised-button><img class="phone-image" src="assets/img/back.png" alt="" > 
+    Back to User Overview
+  </button>
+  
+  <button class="call-button" mat-raised-button (click)="openDeleteDialog()">
+    <img class="phone-image" src="assets/img/delete.png" alt="" > 
+    Delete this User
+  </button>
+</div>
+
+
 <mat-card>
-    <mat-card-content class="user-detail-header">
+  <mat-card-content class="user-detail-header">
 
-        <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="userMenu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="userMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
 
-          <mat-menu #userMenu="matMenu">
-            <button mat-menu-item (click)="editUser()">Edit</button>
-          </mat-menu>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item (click)="editUser()">Edit</button>
+    </mat-menu>
 
-        <img class="user-detail-image" src="./assets/img/avatar.png" alt="">
-        <div class="user-details">
-            <h2>
-                {{user.firstName}}
-                {{user.lastName}}
-            </h2>
-            
-            <br>
-            {{user.email}}
-        </div>
-    </mat-card-content>
+    <img class="user-detail-image" src="./assets/img/avatar.png" alt="">
+    <div class="user-details">
+      <h2>
+        {{user.firstName}}
+        {{user.lastName}}
+      </h2>
+      {{user.phoneNumber}}
+      <br>
+      {{user.email}}
+    </div>
+  </mat-card-content>
 </mat-card>
 
+
+<!-- ---------------CALL AND MAIL CUSTOMER------------------>
+
+<div class="buttons">
+  <div>
+    <button class="call-button" mat-raised-button><img class="phone-image" src="assets/img/call.png" alt=""> 
+      Call {{user.firstName}}
+    </button>
+    
+    
+    <button class="call-button" mat-raised-button><img class="phone-image" src="assets/img/mail.png" alt=""> 
+      Mail {{user.firstName}}
+    </button>
+  </div>
+  
+</div>
+
+
+
+
+<!-- ---------------ASSIGN USER TO COMPANY------------------>
+<mat-card class="mt-32">
+  <mat-form-field>
+  <mat-label>Assign to Company</mat-label>
+  <mat-select [(ngModel)]="selectedCompanyId">
+    <mat-option *ngFor="let company of companys" [value]="company.id">{{ company.name }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button mat-raised-button (click)="assignUserToCompany()">Assign</button>
+
+
+</mat-card>
+
+<div id="success-report" *ngIf="showSuccessMessage">{{ successMessage }}!</div>
+
+<!-- ---------------ADRESS------------------>
 
 <mat-card class="mt-32">
 
-    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="editMenu()">Edit</button>
-      </mat-menu>
+  <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
 
-    <mat-card-header>
-        <mat-card-title>
-        {{user.firstName}}
-        {{user.lastName}}
-        </mat-card-title>
-    </mat-card-header>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="editMenu()">Edit</button>
+  </mat-menu>
 
-    <mat-card-content>
-        {{user.street}} <br>
-        {{user.zipCode}} {{user.city}}
-    </mat-card-content>
+  <mat-card-header>
+    <mat-card-title>
+        Adress 
+    </mat-card-title>
+
+  </mat-card-header>
+
+  <mat-card-content>
+    {{user.firstName}}
+    {{user.lastName}}<br>
+    {{user.street}} <br>
+    {{user.zipCode}} {{user.city}}
+  </mat-card-content>
+
 </mat-card>
+
+<!-- ---------------ANOTHER CARD FOR INFORMATIONS------------------>
+
+<!--
+<mat-card class="mt-32">
+
+  <mat-card-header>
+    <mat-card-title>
+        Information
+    </mat-card-title>
+
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="skills">
+      <div class="text"><input type="checkbox"> Frontend Development</div> <img src="assets/img/development.png" alt="">
+    </div>
+
+    <div class="skills">
+      <div class="text"><input type="checkbox"> Backend Development</div> <img src="assets/img/backend.png" alt="">
+    </div>
+    
+    <div class="skills">
+      <div class="text"><input type="checkbox"> Communication</div> <img src="assets/img/communication.png" alt="">
+    </div>
+
+    <div class="skills">
+      <div class="text"><input type="checkbox"> Recruiting</div> <img src="assets/img/recruitment.png" alt="">
+    </div>
+    
+    <div class="skills">
+      <div class="text"><input type="checkbox"> Engineering</div> <img src="assets/img/engineering.png" alt="">
+    </div>
+  </mat-card-content>
+
+</mat-card>
+-->

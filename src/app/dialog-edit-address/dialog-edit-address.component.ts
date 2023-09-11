@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from 'src/models/user.class';
+import { Company } from 'src/models/company.class';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Firestore, collection, doc, updateDoc } from '@angular/fire/firestore';
@@ -12,8 +13,10 @@ import { Firestore, collection, doc, updateDoc } from '@angular/fire/firestore';
 })
 export class DialogEditAddressComponent {
   user!: User;
+  company!: Company;
   loading: boolean = false;
   userId: string | undefined;
+  companyId: string | undefined;
 
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firestore: Firestore) { }
 

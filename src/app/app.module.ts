@@ -27,15 +27,27 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
-import { CalendarComponent } from './calendar/calendar.component';
-import { FullCalendarModule } from '@fullcalendar/angular';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MbscModule } from '@mobiscroll/angular';
 import { AppComponent } from './app.component';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 import { NotesComponent } from './notes/notes.component';
 import { DialogAddNoteComponent } from './dialog-add-note/dialog-add-note.component';
+import { DialogAddEventComponent } from './dialog-add-event/dialog-add-event.component';
+import { CompanyComponent } from './company/company.component';
+import { DialogAddCompanyComponent } from './dialog-add-company/dialog-add-company.component';
+import { DialogDeleteUserComponent } from './dialog-delete-user/dialog-delete-user.component';
+import { MatSelectModule } from '@angular/material/select';
+import { CompanyDetailsComponent } from './company-details/company-details.component';
+import { DialogEditCompanyAddressComponent } from './dialog-edit-company-address/dialog-edit-company-address.component';
+import { DialogDeleteCompanyComponent } from './dialog-delete-company/dialog-delete-company.component';
+import { DialogEditCompanyComponent } from './dialog-edit-company/dialog-edit-company.component';
+import { DialogEditNoteComponent } from './dialog-edit-note/dialog-edit-note.component';
+import { EventsComponent } from './events/events.component';
+import { DatePipe } from '@angular/common';
+import { EventDetailsComponent } from './event-details/event-details.component';
+import { DialogDeleteEventComponent } from './dialog-delete-event/dialog-delete-event.component';
+
 
 @NgModule({
   declarations: [
@@ -46,13 +58,23 @@ import { DialogAddNoteComponent } from './dialog-add-note/dialog-add-note.compon
     UserDetailsComponent,
     DialogEditAddressComponent,
     DialogEditUserComponent,
-    CalendarComponent,
     LegalNoticeComponent,
     NotesComponent,
-    DialogAddNoteComponent
+    DialogAddNoteComponent,
+    DialogAddEventComponent,
+    CompanyComponent,
+    DialogAddCompanyComponent,
+    DialogDeleteUserComponent,
+    CompanyDetailsComponent,
+    DialogEditCompanyAddressComponent,
+    DialogDeleteCompanyComponent,
+    DialogEditCompanyComponent,
+    DialogEditNoteComponent,
+    EventsComponent,
+    EventDetailsComponent,
+    DialogDeleteEventComponent  
   ],
   imports: [  
-    MbscModule, 
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -67,21 +89,21 @@ import { DialogAddNoteComponent } from './dialog-add-note/dialog-add-note.compon
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule,
+    DatePipe,
     MatProgressBarModule,
     MatCardModule,
     MatMenuModule,
-    FullCalendarModule,
-    MbscModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     HttpClientJsonpModule,
+    MatSelectModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore())
   ],
-  providers: [],
+  providers: [DatePipe], // Hinzufügen des DatePipe
   bootstrap: [AppComponent]
 })
 export class AppModule { }

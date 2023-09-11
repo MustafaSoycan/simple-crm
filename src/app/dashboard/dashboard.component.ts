@@ -9,9 +9,11 @@ import { Firestore, collection, getCountFromServer } from '@angular/fire/firesto
 export class DashboardComponent implements OnInit {
   userCount: number = 0;
   noteCount: number = 0;
+  eventCount: number = 0;
+  companyCount: number = 0;
   currentTime: Date = new Date();
 
-  showInstructions: boolean = true; // Neue Variable hinzugefügt
+  showInstructions: boolean = false; // Neue Variable hinzugefügt
 
 
   constructor(private firestore: Firestore) { }
@@ -22,12 +24,20 @@ export class DashboardComponent implements OnInit {
     console.log('count: ', usersSnapshot.data().count);
     this.userCount = usersSnapshot.data().count;
 
-
-
     let notesCollection = collection(this.firestore, 'notes');
     const notesSnapshot = await getCountFromServer(notesCollection)
     console.log('count: ', notesSnapshot.data().count);
     this.noteCount = notesSnapshot.data().count;
+
+    let eventsCollection = collection(this.firestore, 'events');
+    const eventsSnapshot = await getCountFromServer(eventsCollection)
+    console.log('count: ', eventsSnapshot.data().count);
+    this.eventCount = eventsSnapshot.data().count;
+
+    let companysCollection = collection(this.firestore, 'companys');
+    const companysSnapshot = await getCountFromServer(companysCollection)
+    console.log('count: ', companysSnapshot.data().count);
+    this.companyCount = companysSnapshot.data().count;
 
 
 

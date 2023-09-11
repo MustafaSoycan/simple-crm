@@ -1,6 +1,7 @@
 <div class="header-container">
   <h2 class="headline">Notes <img src="assets/img/note.png" alt="picture of note-icon"></h2>
-  <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png" alt="picture of question mark">
+  <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png"
+    alt="picture of question mark">
 </div>
 
 
@@ -10,10 +11,11 @@
   <h2> <b> Welcome to the Notes Page of my CRM System! </b> </h2>
 
   <b>Welcome to the Notes feature of our CRM system! This tool lets you jot down and manage notes effortlessly. Here's a
-  quick guide on how to use it:</b> <br> <br>
+    quick guide on how to use it:</b> <br> <br>
 
   <b>Adding Notes:</b> <br>
-  Click on the "+ Add Note" Button and write your note. This could be any important information or reminder. After writing your note, click the "Save" button. Your note will now appear on the page.<br>
+  Click on the "+ Add Note" Button and write your note. This could be any important information or reminder. After
+  writing your note, click the "Save" button. Your note will now appear on the page.<br>
 
   <b>Viewing Notes:</b> <br>
   You'll see a list of your added notes on the page. The most recent notes will be at the end.<br>
@@ -24,6 +26,10 @@
   <b>Happy noting!</b>
 </div>
 
+
+
+
+
 <div class="add-note-container">
   <button class="add-notes-button" (click)="openDialog()">+ Add Note</button>
 </div>
@@ -31,9 +37,11 @@
 <div class="notes-board">
 
   <div class="note" *ngFor="let note of notes">
+
+
     <p class="note-title">{{ note.title }}</p>
     <p class="note-description">{{ note.description }}</p>
-    <button  (click)="deleteNote(note.id)" mat-stroked-button color="warn">Delete Note</button>
+    <button (click)="deleteNote(note.id)" mat-stroked-button color="warn">Delete Note</button>
   </div>
 
 </div>

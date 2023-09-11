@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { Firestore, collection, doc, docData } from '@angular/fire/firestore';
+import { Firestore, collection, doc, docData, updateDoc, arrayUnion, collectionData } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/models/user.class';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
+import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-user.component';
+
 
 @Component({
   selector: 'app-user-details',
@@ -14,6 +16,11 @@ import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.co
 export class UserDetailsComponent {
   userId: any = '';
   user: User = new User();
+  companys: any;
+  selectedCompanyId: string | null = null;
+
+  showSuccessMessage = false;
+  successMessage = '';
 
   constructor(private route: ActivatedRoute, private firestore: Firestore, public dialog: MatDialog) { }
 
@@ -25,6 +32,13 @@ export class UserDetailsComponent {
       console.log('Got Id', this.userId);
       // Benutzerdaten abrufen
       this.getUser();
+    });
+
+    let companysCollection = collection(this.firestore, 'companys');
+
+    collectionData(companysCollection, { idField: 'id' }).subscribe(companys => {
+      this.companys = companys;
+      console.log('Companys have been updated :)', companys);
     });
   }
 
@@ -40,7 +54,21 @@ export class UserDetailsComponent {
       this.user = new User(user);
       console.log('Retrieved User', this.user);
     });
+  }
 
+  openDeleteDialog() {
+    const dialogRef = this.dialog.open(DialogDeleteUserComponent, {
+      width: '250px',
+      data: { userId: this.userId }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'deleted') {
+        console.log('User deleted successfully');
+      } else {
+        console.log('User deletion was canceled or closed');
+      }
+    });
   }
 
   editMenu(){
@@ -53,5 +81,31 @@ export class UserDetailsComponent {
     const dialog = this.dialog.open(DialogEditUserComponent)
     dialog.componentInstance.user = new User(this.user.toJSON());
     dialog.componentInstance.userId = this.userId;
+  }
+
+  assignUserToCompany() {
+    if (!this.selectedCompanyId) {
+      console.log('No company selected.');
+      return;
+    }
+
+    const selectedCompany = this.companys.find((company: { id: string | null; }) => company.id === this.selectedCompanyId);
+
+    if (selectedCompany) {
+      const companyDocRef = doc(collection(this.firestore, 'companys'), selectedCompany.id);
+      updateDoc(companyDocRef, {
+        assignedUsers: arrayUnion(this.user.getFullName())
+      })
+        .then(() => {
+          console.log('User assigned to company successfully');
+
+          // Set the success message and show it
+          this.successMessage = 'User assigned successfully, you can see it on the Companys Overview';
+          this.showSuccessMessage = true;
+        })
+        .catch(error => {
+          console.error('Error assigning user to company:', error);
+        });
+    }
   }
 }

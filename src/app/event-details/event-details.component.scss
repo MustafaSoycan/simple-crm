@@ -1,0 +1,124 @@
+.event{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
+// ---------------------- BACK TO COMPANY OVERVIEW BUTTON -------------- //
+
+.back-image{
+    height: 25px;
+    width: auto;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.back-button{
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+
+
+// -------------------- COMPANY HEADER ----------------------- //
+
+.event-detail-header {
+    min-height: 250px;
+    background-color: rgb(233, 186, 100);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+    .company-detail-image {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+
+    .company-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
+
+    .event-header{
+        color: white;
+        font-size: 32px;
+        font-weight: bold;
+    }
+}
+
+// -------------------- ASSIGNED USERS CARD ----------------------- //
+
+.mt-32{
+    margin-top: 32px;
+}
+
+.pin-right-upper-corner{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+
+
+.avatar-image{
+    height: 30px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+//------------------------------ BUTTONS -----------------------------------
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.call-button{
+    margin-top: 32px;
+    font-size: 18px;
+    margin-right: 16px;
+}
+.phone-image{
+    height: 25px;
+    width: auto;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.back-button{
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+
+
+.grey{
+    color: rgb(180, 180, 180);
+}
+
+.information{
+    font-size: 18px;
+}

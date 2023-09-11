@@ -1,6 +1,6 @@
 .user-detail-header {
     min-height: 250px;
-    background-color: rgb(244,67,54);
+    background-color: rgb(63, 81, 181);
     color: white;
 
     display: flex;
@@ -38,4 +38,77 @@
     position: absolute;
     right: 0;
     top: 0;
+}
+
+
+
+
+
+// ----------------------------- SKILLS -------------------------------
+.skills{
+    display: flex;
+    align-items: center;
+    img{
+        height: 30px;
+        object-fit: contain;
+    }
+}
+
+.text{
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+//------------------------------ BUTTONS -----------------------------------
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.call-button{
+    margin-top: 32px;
+    font-size: 18px;
+    margin-right: 16px;
+}
+.phone-image{
+    height: 25px;
+    width: auto;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.back-button{
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+// ---------------------------- SUCESS REPORT AFTER ASSIGNING USER ------------------- //
+
+
+#success-report{
+    margin-top: 32px;
+    color: green;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.button-container{
+    display: flex;
+    justify-content: space-between;
 }

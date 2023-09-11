@@ -5,7 +5,7 @@ export class Note {
 
 
     constructor(obj?: any) {
-        this.title = obj ? obj.firstName : '';
+        this.title = obj ? obj.title : '';
         this.description = obj ? obj.description : '';
     }
 

@@ -1,5 +1,5 @@
 <div class="header-container">
-  <h1 class="headline">Customer Overview <img src="assets/img/user.png" alt="picture of user-icon"></h1>
+  <h1 class="headline">Customer Overview <img src="assets/img/customer.png" alt="picture of user-icon"></h1>
   <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png" alt="picture of question mark">
 </div>
 
@@ -29,6 +29,25 @@
   </div>
 
 
+
+
+
+
+  <mat-card class="search">
+    <mat-card-content>
+      <div class="search-container">
+        <input type="text" class="inputfield" placeholder="Enter a Name" [(ngModel)]="searchQuery" (input)="performSearch()">
+        <p class="search-text">Search for a Customer</p>
+        <img class="search-image" src="assets/img/search.png">
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+
+
+
+
+
 <mat-card>
   <mat-card-content>
     <table class="user-table">
@@ -39,7 +58,11 @@
           <th>City</th>
         </tr>
 
-        <tr routerLink='{{user.id}}' *ngFor="let user of users">
+        <tr routerLink='{{user.id}}' *ngFor="let user of filteredUsers">
+
+        
+
+        
           <td>{{user.firstName}} {{user.lastName}}</td>
           <td>{{user.email}}</td>
           <td>{{user.city}}</td>

@@ -1,0 +1,126 @@
+<button routerLink="/company" class="back-button" mat-raised-button><img class="back-image" src="assets/img/back.png"
+    alt="">
+  Back to Company Overview
+</button>
+
+
+
+<!-- ---------------COMPANY HEADER------------------>
+<mat-card>
+  <mat-card-content class="company-detail-header">
+
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="userMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item (click)="editCompany()">Edit</button>
+    </mat-menu>
+
+
+    <div class="company-details">
+      <img class="company-detail-image" src="./assets/img/companybuilding.png" alt="">
+      <h2>
+        {{company.name}}
+      </h2>
+      {{company.phoneNumber}}<br>
+      {{company.email}}
+      <br>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+
+<!------------------------CALL / MAIL / DELETE BUTTONS-------------------->
+<div class="buttons">
+  <div>
+    <button class="call-button" mat-raised-button><img class="phone-image" src="assets/img/call.png" alt=""> 
+      Call {{company.name}}
+    </button>
+    
+    
+    <button class="call-button" mat-raised-button><img class="phone-image" src="assets/img/mail.png" alt=""> 
+      Mail {{company.name}}
+    </button>
+  </div>
+  
+  
+  
+  <button class="call-button" mat-raised-button (click)="openDeleteDialog()">
+    <img class="phone-image" src="assets/img/delete.png" alt="" > 
+    Delete this Company
+  </button>
+</div>
+
+
+<!-- ---------------CURRENTLY ASSIGNED ------------------>
+
+<mat-card class="mt-32">
+
+  <mat-card-content class="assigned-users center">
+    <mat-card-header>
+      <mat-card-title>
+        Currently Assigned User(s) <img class="avatar-image" src="./assets/img/avatar.png" alt="">
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <b>
+        {{company.assignedUsers}}
+      </b>
+    </mat-card-content>
+  </mat-card-content>
+
+</mat-card>
+
+
+<!-- ---------------ASSIGN USER TO COMPANY------------------>
+<mat-card class="mt-32">
+  <mat-form-field>
+  <mat-label>Select User to Deassign</mat-label>
+  <mat-select [(ngModel)]="selectedUserId">
+    <mat-option *ngFor="let assignedUserId of company.assignedUsers" [value]="assignedUserId">{{ assignedUserId }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<!-- Button zum De-Assignen eines Benutzers -->
+<button mat-raised-button (click)="deassignUserFromCompany(selectedUserId)">Deassign User</button>
+
+
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+<!-- ---------------ADRESS------------------>
+
+<mat-card class="mt-32">
+
+  <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="editMenu()">Edit</button>
+  </mat-menu>
+
+  <mat-card-header>
+    <mat-card-title>
+        Adress 
+    </mat-card-title>
+
+  </mat-card-header>
+
+  <mat-card-content>
+    {{company.name}}<br>
+    {{company.street}} <br>
+    {{company.zipCode}} {{company.city}}
+  </mat-card-content>
+
+</mat-card>

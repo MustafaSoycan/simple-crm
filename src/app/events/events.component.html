@@ -1,0 +1,68 @@
+<div class="header-container">
+    <h1 class="headline">Events <img src="assets/img/event.png" alt="picture of user-icon"></h1>
+    <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png"
+      alt="picture of question mark">
+  </div>
+  
+  
+  
+  
+  <div class="customer-information" *ngIf="showInstructions">
+    <h2> <b> Welcome to the Customer Overview page of my CRM system! </b> </h2>
+  
+  
+    <b> This page serves as a central hub for managing your contacts efficiently. Here's a simple guide on how to navigate
+      and
+      utilize this page: </b> <br> <br>
+  
+    <b> Adding Contacts: </b> <br>
+    To begin, click on the "Add Contact" button, located on the bottom right corner of the page. Fill in the necessary
+    details
+    such as the person's name, contact information, and any additional relevant data. Once you're done, hit "Save" to add
+    the contact to your list. <br>
+  
+    <b>Viewing Contacts:</b> <br>
+    The main section of the page displays a list of all your contacts. You'll find essential information like names and
+    key details here. Scroll through this list to get a quick overview of your contacts.<br>
+  
+    <b>Editing Contacts: </b> <br>
+    If you need to update any information for a specific contact, simply click on their name in the list. This action will
+    take you to an editable view of their details. Here, you can make changes, corrections, or updates as necessary. Don't
+    forget to hit "Save" after making your edits.<br>
+  </div>
+
+
+
+
+
+
+  <!-- ---------------EVENTS LIST ------------------>
+<mat-card class="mt-32" *ngFor="let event of events" routerLink='{{event.id}}'>
+  
+
+  <mat-card-header>
+    <mat-card-title>
+      {{event.title}}
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    {{event.description}} <br>
+    {{event.date}} <br>
+    Assigend User: <b>{{event.assignedUsers}} </b> <br>
+    Assigned Company: <b>{{event.assignedCompanys}}</b>
+  </mat-card-content>
+
+</mat-card>
+
+
+
+
+
+
+
+
+
+  <button (click)="openDialog()" class="add-event-button" mat-fab color="primary" matTooltip="Add Event">
+    <mat-icon>add</mat-icon>
+  </button>

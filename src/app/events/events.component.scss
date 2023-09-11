@@ -1,0 +1,72 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.headline {
+    display: flex;
+    align-items: center;
+
+    font-size: 48px;
+    color: rgb(63, 81, 181);
+    margin-top: 16px;
+    margin-bottom: 32px;
+    font-weight: 550;
+
+    img {
+        margin-left: 16px;
+        height: 70px;
+    }
+}
+
+
+.question-mark {
+    height: 60px;
+    width: 60px;
+
+    margin-left: 16px;
+    margin-bottom: 32px;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.9;
+    }
+}
+
+.customer-information {
+    border: 5px solid rgb(63, 81, 181);
+    padding: 16px;
+    margin-bottom: 32px;
+    background-color: white;
+}
+
+// -------------------------- ADD Event BUTTON -------------------//
+
+.add-event-button {
+    position: absolute;
+    right: 56px;
+    bottom: 56px;
+}
+
+
+
+
+// ----------------------- EVENT CARD ------------------------- // 
+
+.mt-32 {
+    margin-bottom: 32px;
+    background-color: rgba(252, 167, 10, 0.753);
+    transition: transform 0.3s ease,
+    box-shadow 0.3s ease,
+    width 0.3s ease,
+    height 0.3s ease;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+        transform: scale(1.01);
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+    }
+}

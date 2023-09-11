@@ -1,0 +1,53 @@
+<div class="dialog-container">
+
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    
+    <h1 mat-dialog-title>Add Company</h1>
+    <div mat-dialog-content>
+    
+    <mat-form-field appearance="outline" class="form-field mr-16 full-width">
+        <mat-label>Name</mat-label>
+        <input [disabled]="loading" [(ngModel)]="company.name" matInput placeholder="Placeholder">
+      </mat-form-field>
+    
+      <div>
+        <div>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Phone Number</mat-label>
+            <input [disabled]="loading" [(ngModel)]="company.phoneNumber" matInput placeholder="Placeholder">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>E-Mail</mat-label>
+            <input [disabled]="loading" [(ngModel)]="company.email" matInput placeholder="Placeholder">
+          </mat-form-field>
+        </div>
+      </div>
+    
+      <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Street + Housenumber</mat-label>
+            <input [disabled]="loading" [(ngModel)]="company.street" matInput placeholder="Placeholder">
+          </mat-form-field>
+      </div>
+    
+      <div>
+        <mat-form-field appearance="outline" class="mr-16">
+            <mat-label>Zipcode</mat-label>
+            <input [disabled]="loading" [(ngModel)]="company.zipCode" matInput placeholder="Placeholder">
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input [disabled]="loading" [(ngModel)]="company.city" matInput placeholder="Placeholder">
+          </mat-form-field>
+      </div>
+    
+    </div>
+    <div mat-dialog-actions class="center">
+      <button [disabled]="loading" mat-button (click)="dialogRef.close()">Cancel</button>
+      <button [disabled]="loading" mat-button (click)="saveCompany()" cdkFocusInitial>Save</button>
+    </div>
+    
+    </div>

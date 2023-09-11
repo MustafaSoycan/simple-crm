@@ -1,39 +1,46 @@
 <div class="header-container">
   <h1 class="headline">Dashboard <img src="assets/img/dashboard.png" alt="picture of dashboard-icon"></h1>
-  <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png" alt="picture of question mark">
+
+  <div class="digital-clock">
+    <div class="time">{{ currentTime | date: 'hh:mm:ss a'}} </div>
+  </div>
+
+  <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png"
+    alt="picture of question mark">
 </div>
 
 
 
 <div class="dashboard-information" *ngIf="showInstructions">
-    <h2> <b> Welcome to the CRM Dashboard! </b> </h2>
+  <h2> <b> Welcome to the CRM Dashboard! </b> </h2>
 
-    <b>Welcome to my dashboard! Here, you can track the number of users and notes. ( Beta Version )</b> <br> <br>
-  
+  <b>Welcome to my dashboard! Here, you can track the number of users, companys, events and notes.</b> <br>
+  <b>Click on a Container and you get to the Page you want!</b>
+  <br>
+
 </div>
 
 
 <div class="dashboard">
-    <div class="user-dashboard">
+  <div class="user-dashboard" routerLink="/user">
     <p>CURRENT USERS:</p>
     <p class="user-number">{{ userCount }}</p>
-    </div>
-
-
-    <div class="digital-clock">
-        <p class="time">{{ currentTime | date: 'hh:mm:ss a'}} </p>
-      </div>
-
-    <div class="note-dashboard">
-        <p>CURRENT NOTES:</p>
-        <p class="note-number">{{ noteCount }}</p>
-    </div>
   </div>
 
+  <div class="company-dashboard" routerLink="/company">
+    <p>CURRENT COMPANYS:</p>
+    <p class="event-number">{{ companyCount }}</p>
+  </div>
 
-  <div class="dashboard-two">
-    <div class="note-dashboard">
-      <p>CURRENT EVENTS:</p>
-      <p class="event-number">?</p>
+  <div class="note-dashboard" routerLink="/notes">
+    <p>CURRENT NOTES:</p>
+    <p class="note-number">{{ noteCount }}</p>
   </div>
+
+  <div class="event-dashboard" routerLink="/events">
+    <p>CURRENT EVENTS:</p>
+    <p class="event-number">{{ eventCount }}</p>
   </div>
+</div>
+
+

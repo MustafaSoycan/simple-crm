@@ -1,0 +1,100 @@
+<div class="header-container">
+  <h1 class="headline">Company Overview <img src="assets/img/company.png" alt="picture of user-icon"></h1>
+  <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png"
+    alt="picture of question mark">
+</div>
+
+
+
+
+<div class="customer-information" *ngIf="showInstructions">
+  <h2> <b> Welcome to the Customer Overview page of my CRM system! </b> </h2>
+
+
+  <b> This page serves as a central hub for managing your contacts efficiently. Here's a simple guide on how to navigate
+    and
+    utilize this page: </b> <br> <br>
+
+  <b> Adding Contacts: </b> <br>
+  To begin, click on the "Add Contact" button, located on the bottom right corner of the page. Fill in the necessary
+  details
+  such as the person's name, contact information, and any additional relevant data. Once you're done, hit "Save" to add
+  the contact to your list. <br>
+
+  <b>Viewing Contacts:</b> <br>
+  The main section of the page displays a list of all your contacts. You'll find essential information like names and
+  key details here. Scroll through this list to get a quick overview of your contacts.<br>
+
+  <b>Editing Contacts: </b> <br>
+  If you need to update any information for a specific contact, simply click on their name in the list. This action will
+  take you to an editable view of their details. Here, you can make changes, corrections, or updates as necessary. Don't
+  forget to hit "Save" after making your edits.<br>
+</div>
+
+
+
+
+
+
+<mat-card class="search">
+  <mat-card-content>
+    <div class="search-container">
+      <input type="text" class="inputfield" placeholder="Enter a Name" [(ngModel)]="searchQuery"
+        (input)="performSearch()">
+      <p class="search-text">Search for a Company</p>
+      <img class="search-image" src="assets/img/search.png">
+    </div>
+  </mat-card-content>
+</mat-card>
+
+
+<!-- ---------------COMPANYS LIST ------------------>
+<mat-card class="mt-32" *ngFor="let company of filteredCompanys" routerLink='{{company.id}}'>
+  
+  <!--COMPANY ADRESS-->
+  <mat-card-header>
+    <mat-card-title class="company-title">
+      {{company.name}}
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="company-address">
+    {{company.street}} <br>
+    {{company.zipCode}} <br>
+    {{company.city}} <br>
+  </mat-card-content>
+
+
+
+
+
+  <!--COMPANY ASSIGNED PERSON(S)-->
+  <mat-card-header>
+    <mat-card-title>
+        <div class="currently-assigned-container">
+          
+          <p class="currently-assigned"> Assigned User(s) <img src="assets/img/avatar.png" alt="">  : </p>
+          
+        </div>
+      
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="assigned-user" *ngIf="company.assignedUsers.length > 0; else noUsersAssigned">
+      {{company.assignedUsers.join(', ')}} <br>
+    </div>
+    <ng-template #noUsersAssigned>
+      <b>No user assigned yet, go to a Users Profil to assign User to Company</b>
+    </ng-template>
+  </mat-card-content>
+
+</mat-card>
+
+
+
+
+
+<button (click)="openDialog()" class="add-company-button" mat-fab color="primary" matTooltip="Add Company">
+  <mat-icon>add</mat-icon>
+</button>

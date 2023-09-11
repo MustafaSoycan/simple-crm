@@ -23,7 +23,7 @@
 
 .notes-information {
     padding: 16px;
-    border: 15px solid rgb(63, 81, 181);
+    border: 5px solid rgb(63, 81, 181);
     background-color: white;
     margin-bottom: 32px;
 }
@@ -83,9 +83,7 @@
     justify-content: space-between;
 
 
-    cursor: pointer;
     position: relative;
-    padding: 10px 20px;
     background: white;
     font-size: 28px;
     border-top-right-radius: 10px;
@@ -105,15 +103,15 @@
     &:after {
         top: -1px;
         left: -1px;
-        border-top: 5px solid black;
-        border-left: 5px solid black;
+        border-top: 5px solid rgb(63, 81, 181);
+        border-left: 5px solid rgb(63, 81, 181);
     }
 
     &:before {
         bottom: -1px;
         right: -1px;
-        border-bottom: 5px solid black;
-        border-right: 5px solid black;
+        border-bottom: 5px solid rgb(63, 81, 181);
+        border-right: 5px solid rgb(63, 81, 181);
     }
 
     &:hover {
@@ -152,4 +150,17 @@
         cursor: pointer;
         opacity: 0.9;
     }
+}
+
+
+
+
+.mt-32{
+    margin-top: 32px;
+}
+
+.pin-right-upper-corner{
+    position: absolute;
+    right: 0;
+    top: 0;
 }

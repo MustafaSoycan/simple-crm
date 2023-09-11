@@ -1,0 +1,155 @@
+
+ 
+
+
+<div class="event">
+
+   <!------------------------DELETE BUTTON-------------------->
+   <div class="buttons">
+    <button routerLink="/events" class="back-button" mat-raised-button><img class="back-image" src="assets/img/back.png"
+        alt="">
+      Back to Events
+    </button>
+
+    <button (click)="openDeleteDialog()" class="call-button" mat-raised-button>
+      <img class="phone-image" src="assets/img/delete.png" alt="">
+      Delete this Event
+    </button>
+  </div>
+
+  <!-- ---------------COMPANY HEADER------------------>
+  <mat-card>
+    <mat-card-content class="event-detail-header">
+
+
+      <div class="event-header">
+        {{event.title}}
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+
+
+  <!-- ---------------Event Title ------------------>
+
+  <mat-card class="mt-32">
+
+    <mat-card-content class="assigned-users center">
+      <mat-card-header>
+        <mat-card-title class="grey">
+          Title
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content class="information">
+        <b>
+          {{event.title}}
+        </b>
+      </mat-card-content>
+    </mat-card-content>
+
+  </mat-card>
+
+  <!-- ---------------Event Description ------------------>
+
+  <mat-card class="mt-32">
+
+    <mat-card-content class="assigned-users center">
+      <mat-card-header>
+        <mat-card-title class="grey">
+          Description
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content class="information">
+        <b>
+          {{event.description}}
+        </b>
+      </mat-card-content>
+    </mat-card-content>
+
+  </mat-card>
+
+
+  <!-- ---------------Event Date ------------------>
+
+  <mat-card class="mt-32">
+
+    <mat-card-content class="assigned-users center">
+      <mat-card-header>
+        <mat-card-title class="grey">
+          Date
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content class="information">
+        <b>
+          {{ event.date }}
+        </b>
+      </mat-card-content>
+    </mat-card-content>
+
+  </mat-card>
+
+
+  <!-- --------------- ASSIGNED USER  ------------------>
+
+  <mat-card class="mt-32">
+
+    <mat-card-content class="assigned-users center">
+      <mat-card-header>
+        <mat-card-title class="grey">
+          Invited User
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content class="information">
+        <b>
+          {{ formatEventDate() }}
+        </b>
+      </mat-card-content>
+    </mat-card-content>
+
+  </mat-card>
+
+
+  <!-- --------------- ASSIGNED Company  ------------------>
+
+  <mat-card class="mt-32">
+
+    <mat-card-content class="assigned-users center">
+      <mat-card-header>
+        <mat-card-title class="grey">
+          Invited Company
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content class="information">
+        <b>
+          {{event.assignedCompanys}}
+        </b>
+      </mat-card-content>
+    </mat-card-content>
+
+  </mat-card>
+
+
+
+
+
+  <!-- ---------------ADRESS------------------>
+
+  <mat-card class="mt-32">
+
+
+
+  </mat-card>
+
+
+
+
+
+
+
+
+</div>

@@ -2,7 +2,7 @@
 
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
-    <h1 mat-dialog-title>Edit address</h1>
+    <h1 mat-dialog-title>Edit User Information</h1>
     <div mat-dialog-content>
 
         <mat-form-field appearance="outline" class="form-field mr-16">
@@ -22,18 +22,15 @@
                 <input [disabled]="loading" [(ngModel)]="user.email" matInput placeholder="Placeholder">
               </mat-form-field>
             </div>
-        
-            <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Birth Date</mat-label>
-                <input [disabled]="loading" [(ngModel)]="birthDate" matInput [matDatepicker]="datepicker">
-                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
-                <mat-datepicker #datepicker>
-                  <mat-datepicker-actions>
-                    <button mat-button matDatepickerCancel>Cancel</button>
-                    <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
-                  </mat-datepicker-actions>
-                </mat-datepicker>
+
+            <div>
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Phone Number</mat-label>
+                <input [disabled]="loading" [(ngModel)]="user.phoneNumber" matInput placeholder="Placeholder">
               </mat-form-field>
+            </div>
+        
+           
 
     </div>
     <div mat-dialog-actions class="center">
