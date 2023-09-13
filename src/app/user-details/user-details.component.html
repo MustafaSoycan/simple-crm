@@ -39,12 +39,12 @@
 
 <div class="buttons">
   <div>
-    <button class="call-button" mat-raised-button><img class="phone-image" src="assets/img/call.png" alt=""> 
+    <button (click)="callPhoneNumber()" class="call-button" mat-raised-button><img class="phone-image" src="assets/img/call.png" alt=""> 
       Call {{user.firstName}}
     </button>
     
     
-    <button class="call-button" mat-raised-button><img class="phone-image" src="assets/img/mail.png" alt=""> 
+    <button (click)="sendEmail()" class="call-button" mat-raised-button><img class="phone-image" src="assets/img/mail.png" alt=""> 
       Mail {{user.firstName}}
     </button>
   </div>

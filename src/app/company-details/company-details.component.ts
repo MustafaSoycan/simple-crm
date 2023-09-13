@@ -110,4 +110,34 @@ deassignUserFromCompany(userId: string) {
       console.error('Error de-assigning user from company:', error);
     });
 }
+
+
+
+// Methode zum Anrufen der Telefonnummer
+callPhoneNumber() {
+  const phoneNumber = this.company.phoneNumber; // Die Telefonnummer des Benutzers hier einfügen, z.B., "+1234567890"
+
+  // Überprüfen, ob die `tel:`-URL-Unterstützung verfügbar ist
+  if ('href' in HTMLAnchorElement.prototype) {
+    const telLink = document.createElement('a');
+    telLink.href = `tel:${phoneNumber}`;
+
+    // Den erstellten Link klicken, um die Anrufanwendung zu öffnen
+    telLink.click();
+  } else {
+    // Fallback: Wenn die `tel:`-URL-Unterstützung nicht verfügbar ist, einfach die Nummer anzeigen
+    alert(`Bitte rufen Sie die Nummer ${phoneNumber} manuell an.`);
+  }
+}
+
+ // Methode zum Öffnen der E-Mail-Anwendung
+ sendEmail() {
+  const email = this.company.email; // Die E-Mail-Adresse des Benutzers hier einfügen
+  const subject = 'Betreff deiner E-Mail'; // Den gewünschten Betreff hier einfügen
+  const body = 'Hier ist der E-Mail-Text...'; // Den gewünschten E-Mail-Text hier einfügen
+  const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+
+  // E-Mail-Anwendung öffnen
+  window.location.href = mailtoLink;
+}
 }

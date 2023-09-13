@@ -2,11 +2,11 @@
 
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
-    <h1 mat-dialog-title>Edit address</h1>
+    <h1 mat-dialog-title >Edit address</h1>
     <div mat-dialog-content>
 
         <div>
-            <mat-form-field appearance="outline" class="full-width">
+            <mat-form-field appearance="outline" class="full-width padding-top">
                 <mat-label>Street + Housenumber</mat-label>
                 <input [disabled]="loading" [(ngModel)]="user.street" matInput placeholder="Placeholder">
             </mat-form-field>

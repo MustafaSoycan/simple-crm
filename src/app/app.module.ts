@@ -47,6 +47,7 @@ import { EventsComponent } from './events/events.component';
 import { DatePipe } from '@angular/common';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { DialogDeleteEventComponent } from './dialog-delete-event/dialog-delete-event.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { DialogDeleteEventComponent } from './dialog-delete-event/dialog-delete-
     DialogEditNoteComponent,
     EventsComponent,
     EventDetailsComponent,
-    DialogDeleteEventComponent  
+    DialogDeleteEventComponent,
+    LoginComponent  
   ],
   imports: [  
     BrowserModule,
