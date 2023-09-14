@@ -16,9 +16,12 @@ export class RegisterComponent {
 
   register() {
     const auth = getAuth();
+
     createUserWithEmailAndPassword(auth, this.email, this.password)
-      .then(() => {
-        // Registrierung erfolgreich, Sie können den Benutzer jetzt beispielsweise zur Login-Seite weiterleiten
+      .then((userCredential) => {
+        // Registrierung erfolgreich
+        const user = userCredential.user;
+        console.log('User registered successfully')
         this.router.navigate(['/login']);
       })
       .catch((error) => {

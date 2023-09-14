@@ -9,7 +9,7 @@
             <div>
                 <mat-form-field class="example-full-width">
                     <mat-label>Email</mat-label>
-                    <!-- Fügen Sie hier die ngModel-Bindung hinzu -->
+                    
                     <input type="email" matInput placeholder="Ex. pat@example.com" [(ngModel)]="email" name="email">
                 </mat-form-field>
             </div>
@@ -17,7 +17,7 @@
             <div>
                 <mat-form-field class="example-full-width">
                     <mat-label>Password</mat-label>
-                    <!-- Fügen Sie hier die ngModel-Bindung hinzu -->
+                    
                     <input type="password" matInput [(ngModel)]="password" name="password">
                 </mat-form-field>
             </div>
@@ -25,7 +25,6 @@
     </div>
 
     <div class="login-button">
-        <!-- Fügen Sie hier die Methode "register()" hinzu, um die Registrierungsfunktion auszulösen -->
         <button mat-raised-button color="primary" (click)="register()">Register</button>
     </div>
 
