@@ -1,0 +1,39 @@
+<div class="project-title">
+    <h1>Simple CRM</h1>
+</div>
+
+<div class="login-container">
+    <h2>Register</h2>
+    <div>
+        <form class="example-form">
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <!-- Fügen Sie hier die ngModel-Bindung hinzu -->
+                    <input type="email" matInput placeholder="Ex. pat@example.com" [(ngModel)]="email" name="email">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Password</mat-label>
+                    <!-- Fügen Sie hier die ngModel-Bindung hinzu -->
+                    <input type="password" matInput [(ngModel)]="password" name="password">
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+
+    <div class="login-button">
+        <!-- Fügen Sie hier die Methode "register()" hinzu, um die Registrierungsfunktion auszulösen -->
+        <button mat-raised-button color="primary" (click)="register()">Register</button>
+    </div>
+
+    <div class="login-button">
+        <button mat-raised-button color="primary" routerLink="/login">Back to Login</button>
+    </div>
+
+    <div class="register">
+        Not a User? <a href="#">Register</a>
+    </div>
+</div>

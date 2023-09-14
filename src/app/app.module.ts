@@ -14,7 +14,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import {ErrorStateMatcher, MatNativeDateModule, ShowOnDirtyErrorStateMatcher} from '@angular/material/core';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -48,6 +48,7 @@ import { DatePipe } from '@angular/common';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { DialogDeleteEventComponent } from './dialog-delete-event/dialog-delete-event.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { LoginComponent } from './login/login.component';
     EventsComponent,
     EventDetailsComponent,
     DialogDeleteEventComponent,
-    LoginComponent  
+    LoginComponent,
+    RegisterComponent  
   ],
   imports: [  
     BrowserModule,
@@ -105,7 +107,11 @@ import { LoginComponent } from './login/login.component';
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore())
   ],
-  providers: [DatePipe], // Hinzufügen des DatePipe
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
+    DatePipe, // Hier wird der DatePipe als Provider hinzugefügt
+    // Weitere Provider können hier hinzugefügt werden, wenn benötigt
+  ],
+  bootstrap: [AppComponent], 
 })
 export class AppModule { }

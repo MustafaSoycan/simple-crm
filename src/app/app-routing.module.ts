@@ -10,6 +10,7 @@ import { CompanyDetailsComponent } from './company-details/company-details.compo
 import { EventsComponent } from './events/events.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' }, // Hier leiten wir die leere Route auf die Login-Seite weiter
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'legal-notice', component: LegalNoticeComponent },
   { path: 'notes', component: NotesComponent },
   { path: 'company/:id', component: CompanyDetailsComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 

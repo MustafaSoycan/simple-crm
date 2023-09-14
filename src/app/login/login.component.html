@@ -1,3 +1,47 @@
-<div>
-    <form action=""></form>
+
+<div class="project-title">
+    <h1>Simple CRM</h1>
+</div>
+
+
+
+<div class="login-container">
+    
+
+    <h2>Login</h2>
+
+    <div>
+        <form class="example-form">
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput placeholder="Ex. pat@example.com">
+                </mat-form-field>
+            </div>
+
+
+
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput>
+                </mat-form-field>
+            </div>
+
+        </form>
+
+
+    </div>
+
+    <div class="login-button">
+        <button mat-raised-button color="primary">Login</button>
+    </div>
+
+    <div class="login-button">
+        <button mat-raised-button color="primary" routerLink="/dashboard" >Guest Login</button>
+    </div>
+
+    <div class="register">
+        Not a User? <a routerLink="/register">Register</a>
+    </div>
 </div>
