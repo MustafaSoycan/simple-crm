@@ -5,7 +5,7 @@
   <h1 mat-dialog-title>Add Event</h1>
   <div mat-dialog-content>
   
-  <mat-form-field appearance="outline" class="full-width">
+  <mat-form-field appearance="outline" class="full-width form-field">
       <mat-label>Title</mat-label>
       <input [disabled]="loading" [(ngModel)]="event.title" matInput placeholder="Placeholder" name="title" required>
     </mat-form-field>
@@ -32,7 +32,7 @@
 
 
     <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Assign User to Event</mat-label>
+      <mat-label>Invite User to Event</mat-label>
       <mat-select [(ngModel)]="selectedUser">
         <mat-option *ngFor="let user of users" [value]="user.firstName + ' ' + user.lastName">{{ user.firstName }} {{ user.lastName }}</mat-option>
       </mat-select>
@@ -40,7 +40,7 @@
 
 
     <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Assign Company to Event</mat-label>
+      <mat-label>Invite Company to Event</mat-label>
       <mat-select [(ngModel)]="selectedCompany">
         <mat-option *ngFor="let company of companys" [value]="company.name">{{ company.name }} </mat-option>
       </mat-select>

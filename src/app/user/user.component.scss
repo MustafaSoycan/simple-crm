@@ -46,6 +46,10 @@ mat-card-content {
     background-color: white;
 }
 
+
+
+
+
 .add-user-button {
     position: absolute;
     right: 56px;
@@ -102,7 +106,7 @@ mat-card-content {
 
 // ------------------------------- SEARCH INPUTFIELD ---------------------------//
 .search{
-    margin-bottom: 32px;
+    margin-bottom: 64px;
 }
 
 .search-container{
@@ -138,6 +142,6 @@ mat-card-content {
 }
 
 .search-image{
-    height: 50px;
+    height: 40px;
     width: auto;
 }

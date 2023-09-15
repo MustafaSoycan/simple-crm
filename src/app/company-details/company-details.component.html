@@ -20,12 +20,14 @@
 
     <div class="company-details">
       <img class="company-detail-image" src="./assets/img/companybuilding.png" alt="">
+      <div class="company-address">
       <h2>
         {{company.name}}
       </h2>
       {{company.phoneNumber}}<br>
       {{company.email}}
       <br>
+    </div>
     </div>
   </mat-card-content>
 </mat-card>
@@ -60,14 +62,18 @@
   <mat-card-content class="assigned-users center">
     <mat-card-header>
       <mat-card-title>
-        Currently Assigned User(s) <img class="avatar-image" src="./assets/img/avatar.png" alt="">
+        Currently Assigned Users <img class="avatar-image" src="./assets/img/avatar.png" alt="">
       </mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
-      <b>
-        {{company.assignedUsers}}
+      <b *ngIf="company.assignedUsers.length > 0; else noUsersAssigned">
+        {{company.assignedUsers.join(', ')}}
       </b>
+
+      <ng-template #noUsersAssigned>
+        <b class="no-user-assigned">No user assigned, go to a Users Profil to assign User to Company</b>
+      </ng-template>
     </mat-card-content>
   </mat-card-content>
 

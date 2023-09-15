@@ -1,6 +1,8 @@
-
-<div class="project-title">
-    <h1>Simple CRM</h1>
+<div class="project-title-container">
+    <div class="project-title">
+        <span class="title">Simple CRM</span>
+    </div>
+    
 </div>
 
 
@@ -10,12 +12,16 @@
 
     <h2>Login</h2>
 
-    <div>
+    
+    <mat-card class="formular-card">
+        <mat-progress-bar *ngIf="loading" mode="indeterminate" class="progress-bar"></mat-progress-bar>
+    
+    <div class="formular">
         <form class="example-form">
             <div>
                 <mat-form-field class="example-full-width">
                     <mat-label>Email</mat-label>
-                    <input type="email" matInput placeholder="Ex. pat@example.com">
+                    <input type="email" matInput placeholder="Ex. pat@example.com" [(ngModel)]="email" name="email">
                 </mat-form-field>
             </div>
 
@@ -24,24 +30,33 @@
             <div>
                 <mat-form-field class="example-full-width">
                     <mat-label>Password</mat-label>
-                    <input type="password" matInput>
+                    <input type="password" matInput [(ngModel)]="password" name="password">
                 </mat-form-field>
             </div>
 
         </form>
 
+        <div class="error-message" *ngIf="errorMessage">
+            {{ errorMessage }}
+        </div>
+
 
     </div>
 
     <div class="login-button">
-        <button mat-raised-button color="primary">Login</button>
+        <button mat-raised-button color="primary" (click)="login()">Login</button>
     </div>
 
-    <div class="login-button">
+    <div class="guest-login-button">
         <button mat-raised-button color="primary" routerLink="/dashboard" >Guest Login</button>
     </div>
+</mat-card>
 
-    <div class="register">
-        Not a User? <a routerLink="/register">Register</a>
-    </div>
+
+    <mat-card class="not-a-user-card">
+        <div class="register">
+            <b>Not a User?</b> <a routerLink="/register">Register</a>
+        </div>
+    </mat-card>
+    
 </div>

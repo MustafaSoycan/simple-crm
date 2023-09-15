@@ -1,68 +1,106 @@
 <div class="header-container">
-    <h1 class="headline">Events <img src="assets/img/event.png" alt="picture of user-icon"></h1>
-    <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png"
-      alt="picture of question mark">
-  </div>
-  
-  
-  
-  
-  <div class="customer-information" *ngIf="showInstructions">
-    <h2> <b> Welcome to the Customer Overview page of my CRM system! </b> </h2>
-  
-  
-    <b> This page serves as a central hub for managing your contacts efficiently. Here's a simple guide on how to navigate
-      and
-      utilize this page: </b> <br> <br>
-  
-    <b> Adding Contacts: </b> <br>
-    To begin, click on the "Add Contact" button, located on the bottom right corner of the page. Fill in the necessary
-    details
-    such as the person's name, contact information, and any additional relevant data. Once you're done, hit "Save" to add
-    the contact to your list. <br>
-  
-    <b>Viewing Contacts:</b> <br>
-    The main section of the page displays a list of all your contacts. You'll find essential information like names and
-    key details here. Scroll through this list to get a quick overview of your contacts.<br>
-  
-    <b>Editing Contacts: </b> <br>
-    If you need to update any information for a specific contact, simply click on their name in the list. This action will
-    take you to an editable view of their details. Here, you can make changes, corrections, or updates as necessary. Don't
-    forget to hit "Save" after making your edits.<br>
-  </div>
+  <h1 class="headline">Events <img src="assets/img/event.png" alt="picture of user-icon"></h1>
+  <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png"
+    alt="picture of question mark">
+</div>
 
 
 
 
+<div class="customer-information" *ngIf="showInstructions">
+  <h2> <b> Welcome to the Customer Overview page of my CRM system! </b> </h2>
 
 
-  <!-- ---------------EVENTS LIST ------------------>
-<mat-card class="mt-32" *ngFor="let event of events" routerLink='{{event.id}}'>
-  
+  <b> This page serves as a central hub for managing your contacts efficiently. Here's a simple guide on how to navigate
+    and
+    utilize this page: </b> <br> <br>
 
-  <mat-card-header>
-    <mat-card-title>
-      {{event.title}}
-    </mat-card-title>
-  </mat-card-header>
+  <b> Adding Contacts: </b> <br>
+  To begin, click on the "Add Contact" button, located on the bottom right corner of the page. Fill in the necessary
+  details
+  such as the person's name, contact information, and any additional relevant data. Once you're done, hit "Save" to add
+  the contact to your list. <br>
 
+  <b>Viewing Contacts:</b> <br>
+  The main section of the page displays a list of all your contacts. You'll find essential information like names and
+  key details here. Scroll through this list to get a quick overview of your contacts.<br>
+
+  <b>Editing Contacts: </b> <br>
+  If you need to update any information for a specific contact, simply click on their name in the list. This action will
+  take you to an editable view of their details. Here, you can make changes, corrections, or updates as necessary. Don't
+  forget to hit "Save" after making your edits.<br>
+</div>
+
+
+<mat-card class="search">
   <mat-card-content>
-    {{event.description}} <br>
-    {{event.date}} <br>
-    Assigend User: <b>{{event.assignedUsers}} </b> <br>
-    Assigned Company: <b>{{event.assignedCompanys}}</b>
+    <div class="search-container">
+      <input type="text" class="inputfield" placeholder="Enter a Name" [(ngModel)]="searchQuery"
+        (input)="performSearch()">
+      <p class="search-text">Search for a Event</p>
+      <img class="search-image" src="assets/img/search.png">
+    </div>
   </mat-card-content>
-
 </mat-card>
 
 
 
+<!-- ---------------EVENTS LIST ------------------>
+<!-- ---------------COMPANYS LIST ------------------>
+<div class="mt-32" *ngFor="let event of filteredEvents" routerLink='{{event.id}}'>
+
+  <!--COMPANY ADRESS-->
+  <div class="company">
+    <div>
+      <h1 class="company-title">
+        {{event.title}}
+      </h1>
+
+      <b class="company-address">
+        {{event.description}} <br>
+      </b>
+    </div>
+
+  </div>
+
+  <div>
+    <div class="schraeger-balken">
+
+      <div class="currently-assigned-container">
+        <p class="currently-assigned">
+          DATE FOR THE EVENT
+        </p>
+
+        <div class="assigned-user" *ngIf="event.assignedUsers.length > 0; else noUsersAssigned">
+         <b class="date"> {{ event.date.toDate()}}</b>
+        </div>
+      </div>
+
+     
+      <ng-template #noUsersAssigned>
+        <b class="no-user-assigned">No user assigned, go to a Users Profil to assign User to Company</b>
+      </ng-template>
+    </div>
+  </div>
+
+
+  <div class="building-image-container">
+    <img class="building-image" src="assets/img/event-card.png" alt="">
+  </div>
+
+
+</div>
 
 
 
 
 
 
-  <button (click)="openDialog()" class="add-event-button" mat-fab color="primary" matTooltip="Add Event">
-    <mat-icon>add</mat-icon>
-  </button>
+
+
+
+
+
+<button (click)="openDialog()" class="add-event-button" mat-fab color="primary" matTooltip="Add Event">
+  <mat-icon>add</mat-icon>
+</button>

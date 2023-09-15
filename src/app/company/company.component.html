@@ -49,48 +49,49 @@
 
 
 <!-- ---------------COMPANYS LIST ------------------>
-<mat-card class="mt-32" *ngFor="let company of filteredCompanys" routerLink='{{company.id}}'>
-  
+<div class="mt-32" *ngFor="let company of filteredCompanys" routerLink='{{company.id}}'>
+
   <!--COMPANY ADRESS-->
-  <mat-card-header>
-    <mat-card-title class="company-title">
-      {{company.name}}
-    </mat-card-title>
-  </mat-card-header>
+  <div class="company">
+    <div>
+      <h1 class="company-title">
+        {{company.name}}
+      </h1>
 
-  <mat-card-content class="company-address">
-    {{company.street}} <br>
-    {{company.zipCode}} <br>
-    {{company.city}} <br>
-  </mat-card-content>
-
-
-
-
-
-  <!--COMPANY ASSIGNED PERSON(S)-->
-  <mat-card-header>
-    <mat-card-title>
-        <div class="currently-assigned-container">
-          
-          <p class="currently-assigned"> Assigned User(s) <img src="assets/img/avatar.png" alt="">  : </p>
-          
-        </div>
-      
-    </mat-card-title>
-  </mat-card-header>
-
-  <mat-card-content>
-    <div class="assigned-user" *ngIf="company.assignedUsers.length > 0; else noUsersAssigned">
-      {{company.assignedUsers.join(', ')}} <br>
+      <b class="company-address">
+        {{company.street}} <br>
+        {{company.zipCode}} <br>
+        {{company.city}} <br>
+      </b>
     </div>
-    <ng-template #noUsersAssigned>
-      <b>No user assigned yet, go to a Users Profil to assign User to Company</b>
-    </ng-template>
-  </mat-card-content>
 
-</mat-card>
+  </div>
 
+  <div>
+    <div class="schraeger-balken">
+
+      <div class="currently-assigned-container">
+        <p class="currently-assigned"> Assigned Users
+          
+        </p>
+      </div>
+
+      <div class="assigned-user" *ngIf="company.assignedUsers.length > 0; else noUsersAssigned">
+        {{company.assignedUsers.join(', ')}} <br>
+      </div>
+      <ng-template #noUsersAssigned>
+        <b class="no-user-assigned">No user assigned, go to a Users Profil to assign User to Company</b>
+      </ng-template>
+
+    </div>
+  </div>
+
+  <div class="building-image-container">
+    <img class="building-image" src="assets/img/building.png" alt="">
+  </div>
+  
+
+</div>
 
 
 

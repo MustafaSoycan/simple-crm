@@ -51,23 +51,19 @@
 <mat-card>
   <mat-card-content>
     <table class="user-table">
-      <tbody>
-        <tr>
+      
+        <tr class="info-table">
           <th>Name</th>
           <th>E-Mail</th>
           <th>City</th>
         </tr>
 
-        <tr routerLink='{{user.id}}' *ngFor="let user of filteredUsers">
-
-        
-
-        
+        <tr class="user" routerLink='{{user.id}}' *ngFor="let user of filteredUsers">
           <td>{{user.firstName}} {{user.lastName}}</td>
           <td>{{user.email}}</td>
           <td>{{user.city}}</td>
         </tr>
-      </tbody>
+      
 
     </table>
   </mat-card-content>

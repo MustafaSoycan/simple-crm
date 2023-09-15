@@ -4,7 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Event } from 'src/models/event.class';
 import { DialogDeleteEventComponent } from '../dialog-delete-event/dialog-delete-event.component';
-import { DatePipe, formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-event-details',
@@ -18,7 +17,7 @@ export class EventDetailsComponent {
   events: any;
 
 
-  constructor(private route: ActivatedRoute, private firestore: Firestore, public dialog: MatDialog, private datePipe: DatePipe) { }
+  constructor(private route: ActivatedRoute, private firestore: Firestore, public dialog: MatDialog) { }
 
 
   ngOnInit(): void {
@@ -61,13 +60,5 @@ export class EventDetailsComponent {
     });
   }
 
-  // Methode, um das Datum im gewünschten Format anzuzeigen
-formatEventDate(): string {
-  if (this.event && this.event.date) {
-    const formattedDate = formatDate(this.event.date, 'dd.MM.yyyy', 'en-US'); // Kein toDate() erforderlich
-    return formattedDate;
-  }
-  return '';
-}
 }
 
