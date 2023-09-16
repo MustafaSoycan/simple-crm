@@ -14,13 +14,17 @@ export class DialogAddUserComponent {
   user = new User();
   birthDate!: Date;
   loading = false;
+  registrationDate!: Date;
 
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firestore: Firestore){
     this.birthDate = new Date(); // Zum Beispiel hier initialisieren
+    this.registrationDate = new Date(); 
   }
 
   saveUser(){
     this.user.birthDate = this.birthDate.getTime();
+    this.user.registrationDate = this.registrationDate.getTime(); 
+    console.log('Registration Date:', this.registrationDate);
     console.log('Current user is', this.user)
     this.loading = true;
 

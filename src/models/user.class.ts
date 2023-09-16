@@ -7,6 +7,7 @@ export class User {
     zipCode: number;
     city: string;
     phoneNumber: number;
+    registrationDate: number; // Neues Feld für das Registrierungsdatum
 
 
     constructor(obj?: any) {
@@ -18,6 +19,7 @@ export class User {
         this.zipCode = obj ? obj.zipCode : '';
         this.city = obj ? obj.city : '';
         this.phoneNumber = obj ? obj.phoneNumber : '';
+        this.registrationDate = obj ? obj.registrationDate : '';
     }
 
     // Füge eine Methode hinzu, um den vollen Namen abzurufen
@@ -34,7 +36,8 @@ export class User {
             street: this.street,
             zipCode: this.zipCode,
             city: this.city,
-            phoneNumber: this.phoneNumber
+            phoneNumber: this.phoneNumber,
+            registrationDate: this.registrationDate
         }
     }
 }

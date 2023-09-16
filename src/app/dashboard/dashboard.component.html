@@ -22,28 +22,56 @@
 <div class="dashboard">
   <div class="user-dashboard" routerLink="/user">
     <p>CURRENT USERS:</p>
-    <p class="user-number">{{ userCount }}</p>
-  </div>
-
-  <div class="company-dashboard" routerLink="/company">
-    <p>CURRENT COMPANYS:</p>
-    <p class="event-number">{{ companyCount }}</p>
+    <p class="amount-number">{{ userCount }}</p>
   </div>
 
   <div class="note-dashboard" routerLink="/notes">
     <p>CURRENT NOTES:</p>
-    <p class="note-number">{{ noteCount }}</p>
+    <p class="amount-number">{{ noteCount }}</p>
   </div>
 
-  <div class="event-dashboard" routerLink="/events">
+  <div class="user-dashboard" routerLink="/company">
+    <p>CURRENT COMPANYS:</p>
+    <p class="amount-number">{{ companyCount }}</p>
+  </div>
+
+  <div class="note-dashboard" routerLink="/events">
     <p>CURRENT EVENTS:</p>
-    <p class="event-number">{{ eventCount }}</p>
+    <p class="amount-number">{{ eventCount }}</p>
   </div>
 </div>
 
 <div class="dashboard">
-  <div class="time-dashboard">
-      <div class="time">{{ currentTime | date: 'hh:mm:ss a'}} </div>
+  <div class="note-dashboard">
+    <p>Current Companys working with Users:</p>
+    <p class="amount-number">{{ eventCount }}</p>
   </div>
 
+  <div class="user-dashboard">
+    <p>Current Companys working with Users:</p>
+    <p class="amount-number">{{ eventCount }}</p>
+  </div>
+
+  <div class="note-dashboard">
+    <p>Current Companys working with Users:</p>
+    <p class="amount-number">{{ eventCount }}</p>
+  </div>
+
+  <div class="user-dashboard">
+    <p>Current Companys working with Users:</p>
+    <p class="amount-number">{{ eventCount }}</p>
+  </div>
 </div>
+
+<div class="charts">
+  
+
+  <canvas id="piechart"> </canvas>
+
+  <canvas id="thirdChart"></canvas>
+
+  <canvas id="asschart"></canvas>
+
+  
+</div>
+

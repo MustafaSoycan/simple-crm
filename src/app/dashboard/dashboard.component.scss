@@ -29,6 +29,7 @@
     margin-bottom: 64px;
 }
 
+// ------------------------------------ DASHBOARD ---------------------------- //
 .dashboard {
     display: flex;
     justify-content: space-between;
@@ -59,13 +60,15 @@
 .user-dashboard {
     background-color: rgb(63, 81, 181);
     color: white;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 600;
     border: 8px solid rgb(63, 81, 181);
     border-radius: 10px;
-    min-height: 20vh;
-    min-width: 15vw;
-    max-width: 20vw;
+
+    min-height: 15vh;
+    max-height: 15vh;
+    min-width: 10vw;
+    max-width: 10vw;
     padding: 16px;
 
     display: flex;
@@ -73,7 +76,7 @@
     flex-direction: column;
     align-items: center;
 
-    .user-number {
+    .amount-number {
         font-size: 70px;
     }
 
@@ -93,14 +96,16 @@
 .note-dashboard {
     background-color: rgb(173, 179, 214);
     color: white;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 600;
     border: 8px solid rgb(173, 179, 214);
-    ;
+
     border-radius: 10px;
-    min-height: 20vh;
-    min-width: 15vw;
-    max-width: 20vw;
+    
+    min-height: 15vh;
+    max-height: 15vh;
+    min-width: 10vw;
+    max-width: 10vw;
     padding: 16px;
 
     display: flex;
@@ -108,7 +113,7 @@
     flex-direction: column;
     align-items: center;
 
-    .note-number {
+    .amount-number {
         font-size: 70px;
     }
 
@@ -128,14 +133,15 @@
 .event-dashboard {
     background-color: rgb(231, 167, 47);
     color: white;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 600;
     border: 8px solid rgb(231, 167, 47);
     ;
     border-radius: 10px;
-    min-height: 20vh;
-    min-width: 15vw;
-    max-width: 20vw;
+    min-height: 15vh;
+    max-height: 15vh;
+    min-width: 10vw;
+    max-width: 10vw;
     padding: 16px;
 
     display: flex;
@@ -143,7 +149,7 @@
     flex-direction: column;
     align-items: center;
 
-    .event-number {
+    .amount-number {
         font-size: 70px;
     }
 
@@ -165,14 +171,14 @@
 .company-dashboard {
     background-color: rgb(172, 44, 44);
     color: white;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 600;
     border: 8px solid rgb(172, 44, 44);
-    ;
     border-radius: 10px;
-    min-height: 20vh;
-    min-width: 15vw;
-    max-width: 20vw;
+    min-height: 15vh;
+    max-height: 15vh;
+    min-width: 10vw;
+    max-width: 10vw;
     padding: 16px;
     text-align: center;
 
@@ -181,7 +187,7 @@
     flex-direction: column;
     align-items: center;
 
-    .event-number {
+    .amount-number {
         font-size: 70px;
     }
 
@@ -199,43 +205,6 @@
 }
 
 
-//-------------- TIME DASHBOARD ------------------- //
-
-.time-dashboard {
-    background-color: rgb(255, 255, 255);
-    color: black;
-    font-size: 32px;
-    font-weight: 600;
-    border: 8px solid rgb(63,81,181);
-    ;
-    border-radius: 10px;
-    min-height: 20vh;
-    min-width: 15vw;
-    max-width: 20vw;
-    padding: 16px;
-    text-align: center;
-
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: center;
-
-    .event-number {
-        font-size: 70px;
-    }
-
-    transition: transform 0.3s ease,
-    box-shadow 0.3s ease,
-    width 0.3s ease,
-    height 0.3s ease;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
-
-    &:hover {
-        transform: scale(1.1);
-        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
-        
-    }
-}
 
 
 
@@ -254,7 +223,24 @@
 
 
 
-.time{
-    font-size: 40px;
-    font-weight: bold;
+//--------------------------- CHART ------------------------- //
+
+.charts{
+    display: flex;
+    justify-content: space-between;
+}
+
+#piechart{
+    height: 400px !important;
+    width: auto;
+}
+
+#asschart{
+    height: 400px !important;
+    width: auto;
+}
+
+#thirdChart{
+    height: 400px !important;
+    width: auto;
 }

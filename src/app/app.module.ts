@@ -49,7 +49,7 @@ import { EventDetailsComponent } from './event-details/event-details.component';
 import { DialogDeleteEventComponent } from './dialog-delete-event/dialog-delete-event.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -109,8 +109,8 @@ import { RegisterComponent } from './register/register.component';
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
-    DatePipe, // Hier wird der DatePipe als Provider hinzugefügt
-    // Weitere Provider können hier hinzugefügt werden, wenn benötigt
+    DatePipe, 
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent], 
 })

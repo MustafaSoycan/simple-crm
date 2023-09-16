@@ -1,12 +1,26 @@
+.project-title-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+
+
 .project-title {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5vh;
+    background-color: rgb(63,81,181);
+    min-width: 308px;
+    max-width: 308px;
+    border-radius: 10px;
+    padding-top: 32px;
+    padding-bottom: 32px;
 
-    img {
-        height: 80px;
-        width: auto;
+    .title{
+        font-size: 40px;
+        font-weight: bold;
+        color: white;
     }
 
 }
