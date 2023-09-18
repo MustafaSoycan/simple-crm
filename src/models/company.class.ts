@@ -7,6 +7,8 @@ export class Company {
     city: string;
     assignedUsers: string[]; // Verwende ein Array von Benutzer-IDs
     phoneNumber: number; // Verwende ein Array von Benutzer-IDs
+    monthlySales: number;
+
 
     constructor(obj?: any) {
         this.name = obj ? obj.name : '';
@@ -17,6 +19,7 @@ export class Company {
         this.city = obj ? obj.city : '';
         this.assignedUsers = obj ? obj.assignedUsers || [] : []; // Initialisiere es mit einem leeren Array
         this.phoneNumber = obj ? obj.phoneNumber : '';
+        this.monthlySales = obj ? obj.monthlySales : '';
     }
 
     public toJSON() {
@@ -28,7 +31,8 @@ export class Company {
             zipCode: this.zipCode,
             city: this.city,
             assignedUsers: this.assignedUsers,
-            phoneNumber: this.phoneNumber
+            phoneNumber: this.phoneNumber,
+            monthlySales: this.monthlySales,
         };
     }
 }

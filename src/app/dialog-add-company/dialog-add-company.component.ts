@@ -11,13 +11,17 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class DialogAddCompanyComponent {
   company = new Company();
   loading = false;
+  monthlySales!: number;
 
-  constructor(public dialogRef: MatDialogRef<DialogAddCompanyComponent>, private firestore: Firestore){}
+  constructor(public dialogRef: MatDialogRef<DialogAddCompanyComponent>, private firestore: Firestore) { }
 
 
-  saveCompany(){
+  saveCompany() {
     console.log('Current Company is', this.company)
     this.loading = true;
+
+    // Generiere einen zufälligen 5-stelligen Betrag für monthlySales
+    this.company.monthlySales = this.generateRandomFiveDigitNumber();
 
     let companysCollection = collection(this.firestore, 'companys');
     addDoc(companysCollection, this.company.toJSON())
@@ -26,5 +30,10 @@ export class DialogAddCompanyComponent {
         console.log('Company added successfully!');
         this.dialogRef.close();
       })
+  }
+
+  // Methode zum Generieren eines zufälligen 5-stelligen Betrags
+  private generateRandomFiveDigitNumber(): number {
+    return Math.floor(10000 + Math.random() * 90000);
   }
 }
