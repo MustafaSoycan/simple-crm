@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Firestore, collection, getCountFromServer, getDocs, query, where } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, getCountFromServer, getDocs, query, where } from '@angular/fire/firestore';
 import { Chart, registerables } from 'node_modules/chart.js';
 import { Company } from 'src/models/company.class';
 Chart.register(...registerables)
@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
 
   showInstructions: boolean = false; // Neue Variable hinzugefügt
 
+  companys: any;
 
   constructor(private firestore: Firestore) { }
 
@@ -50,10 +51,13 @@ export class DashboardComponent implements OnInit {
   }
 
   renderFirstChart(){
+    
+    console.log('Companys Array:', this.companys)
+
     new Chart("monthlySales", {
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: [],
         datasets: [{
           label: 'Current Sales of the Companys',
           data: [12, 19, 3, 5, 2, 3],
@@ -93,21 +97,19 @@ export class DashboardComponent implements OnInit {
   }
  
   async getCompanyData(){
+    // GREIFT AUF DATENBANK IN FIRESTORE ZU
     let companysCollection = collection(this.firestore, 'companys');
+
+    // ZÄHLT DIE ANZAHL DER DATEN IN DER COLLECTION
     const companysSnapshot = await getCountFromServer(companysCollection)
     console.log('Amount of Companys: ', companysSnapshot.data().count);
     this.companyCount = companysSnapshot.data().count;
 
-    // Gibt die Company Namen und die monthlySales raus
-    const companysQuerySnapshot = await getDocs(companysCollection);
-    const companyData = companysQuerySnapshot.docs.map((doc) => {
-      const company = doc.data() as Company;
-      return {
-        name: company.name,
-        monthlySales: company.monthlySales
-      };
-    });
-    // Company Namen und Verkaufszahlen in der Konsole
-    console.log('Company Data:', companyData);
+   // RUFT DATEN DER COMPANYS AB
+    collectionData(companysCollection, { idField: 'id' }).subscribe(companys => {
+      this.companys = companys;
+      console.log('Companys:', companys)
+    })
+    
   }
 }
