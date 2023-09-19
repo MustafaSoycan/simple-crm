@@ -26,19 +26,19 @@ export class DashboardComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     
-    this.getUserData();
-    this.getEventData();
-    this.getNoteData();
-    this.getCompanyData();
+    await this.getUserData();
+    await this.getEventData();
+    await this.getNoteData();
+    await this.getCompanyData();
 
-    
+    this.renderFirstChart();
 
     
 
     this.updateTime();
     setInterval(() => this.updateTime(), 1000);
 
-    this.renderFirstChart();
+    
   }
 
 
@@ -51,7 +51,7 @@ export class DashboardComponent implements OnInit {
   }
 
   renderFirstChart(){
-    
+   
     console.log('Companys Array:', this.companys)
 
     new Chart("monthlySales", {
@@ -106,10 +106,13 @@ export class DashboardComponent implements OnInit {
     this.companyCount = companysSnapshot.data().count;
 
    // RUFT DATEN DER COMPANYS AB
+
+  
     collectionData(companysCollection, { idField: 'id' }).subscribe(companys => {
       this.companys = companys;
-      console.log('Companys:', companys)
+      console.log('Current Companys:', this.companys)
+      debugger;
     })
-    
+   
   }
 }
