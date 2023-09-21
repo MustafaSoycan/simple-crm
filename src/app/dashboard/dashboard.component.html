@@ -1,15 +1,10 @@
 <div class="header-container">
   <h1 class="headline">Dashboard <img src="assets/img/dashboard.png" alt="picture of dashboard-icon"></h1>
-
-
-
   <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png"
     alt="picture of question mark">
 </div>
 
-
-
-<div class="dashboard-information" *ngIf="showInstructions">
+<div class="dashboard-information" [ngClass]="{'slide-in': showInstructions}" *ngIf="showInstructions">
   <h2> <b> Welcome to the CRM Dashboard! </b> </h2>
 
   <b>Welcome to my dashboard! Here, you can track the number of users, companys, events and notes.</b> <br>
@@ -18,33 +13,37 @@
 
 </div>
 
+<div class="balken"></div>
+
+
+
+
 
 <div class="dashboard">
-  <div class="user-dashboard" routerLink="/user">
-    <p>CURRENT USERS:</p>
+  <div class="blue-dashboard" routerLink="/user">
+    <p>USERS:</p>
     <p class="amount-number">{{ userCount }}</p>
   </div>
 
-  <div class="note-dashboard" routerLink="/notes">
-    <p>CURRENT NOTES:</p>
+  <div class="grey-dashboard" routerLink="/notes">
+    <p>NOTES:</p>
     <p class="amount-number">{{ noteCount }}</p>
   </div>
 
-  <div class="user-dashboard" routerLink="/company">
-    <p>CURRENT COMPANYS:</p>
+  <div class="blue-dashboard" routerLink="/company">
+    <p>COMPANYS:</p>
     <p class="amount-number">{{ companyCount }}</p>
   </div>
 
-  <div class="note-dashboard" routerLink="/events">
-    <p>CURRENT EVENTS:</p>
+  <div class="grey-dashboard" routerLink="/events">
+    <p>EVENTS:</p>
     <p class="amount-number">{{ eventCount }}</p>
   </div>
 </div>
 
-<div class="dashboard">
 
-</div>
 
 <div class="charts">
   <canvas id="monthlySales"> </canvas>
+  <canvas id="employees"> </canvas>
 </div>

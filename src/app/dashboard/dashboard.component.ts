@@ -22,6 +22,8 @@ export class DashboardComponent implements OnInit {
 
   companys: any;
 
+ 
+
   constructor(private firestore: Firestore) { }
 
   async ngOnInit(): Promise<void> {
@@ -31,9 +33,9 @@ export class DashboardComponent implements OnInit {
     await this.getNoteData();
     await this.getCompanyData();
 
-    this.renderFirstChart();
-
     
+
+    console.log('This is a test if the companys are global:', this.companys)
 
     this.updateTime();
     setInterval(() => this.updateTime(), 1000);
@@ -50,29 +52,73 @@ export class DashboardComponent implements OnInit {
     this.showInstructions = !this.showInstructions;
   }
 
-  renderFirstChart(){
-   
-    console.log('Companys Array:', this.companys)
+  renderFirstChart() {
+    console.log('Companys Array:', this.companys);
+
+    const labels = [];
+    const data = [];
+
+    for (let i = 0; i < this.companys.length; i++) {
+        labels.push(this.companys[i]['name']);
+        data.push(this.companys[i]['monthlySales'])
+    }
+
+    const barColors = ['rgb(63,81,181)', 'rgb(43,100,181)', 'rgb(33,150,243)', 'rgb(33,150,223)', 'rgb(232,67,35)' ]
 
     new Chart("monthlySales", {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Current Sales of the Companys',
+                data: data, // Hier wird das Array mit den Daten eingefügt
+                backgroundColor: barColors,
+                borderWidth: 10,
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+
+renderSecondChart() {
+
+  const labels = [];
+    const data = [];
+
+    for (let i = 0; i < this.companys.length; i++) {
+        labels.push(this.companys[i]['name']);
+        data.push(this.companys[i]['amountEmployees'])
+    }
+ 
+  const barColors = ['rgb(212,67,35)', 'orange', 'rgb(182,67,35)', 'rgb(250,215,8)']
+
+  new Chart("employees", {
       type: 'bar',
       data: {
-        labels: [],
-        datasets: [{
-          label: 'Current Sales of the Companys',
-          data: [12, 19, 3, 5, 2, 3],
-          borderWidth: 1
-        }]
+          labels: labels,
+          datasets: [{
+              label: 'Amount of Employees of the Companys',
+              data: data, 
+              backgroundColor: barColors,
+              borderWidth: 10
+          }]
       },
       options: {
-        scales: {
-          y: {
-            beginAtZero: true
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
           }
-        }
       }
-    });
-  }
+  });
+}
 
 
   async getUserData(){
@@ -106,13 +152,13 @@ export class DashboardComponent implements OnInit {
     this.companyCount = companysSnapshot.data().count;
 
    // RUFT DATEN DER COMPANYS AB
-
-  
     collectionData(companysCollection, { idField: 'id' }).subscribe(companys => {
       this.companys = companys;
       console.log('Current Companys:', this.companys)
-      debugger;
+      this.renderFirstChart();
+      this.renderSecondChart();
     })
-   
   }
+
+
 }

@@ -1,20 +1,21 @@
 <div class="header-container">
-  <h1 class="headline">Customer Overview <img src="assets/img/customer.png" alt="picture of user-icon"></h1>
-  <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png" alt="picture of question mark">
+  <h1 class="headline">Users <img src="assets/img/customer.png" alt="picture of user-icon"></h1>
+  <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png"
+    alt="picture of question mark">
 </div>
 
 
-
-
-<div class="customer-information" *ngIf="showInstructions">
+<div class="customer-information" [ngClass]="{'slide-in': showInstructions}" *ngIf="showInstructions" >
   <h2> <b> Welcome to the Customer Overview page of my CRM system! </b> </h2>
 
-  
-  <b> This page serves as a central hub for managing your contacts efficiently. Here's a simple guide on how to navigate and
-  utilize this page: </b> <br> <br>
+
+  <b> This page serves as a central hub for managing your contacts efficiently. Here's a simple guide on how to navigate
+    and
+    utilize this page: </b> <br> <br>
 
   <b> Adding Contacts: </b> <br>
-  To begin, click on the "Add Contact" button, located on the bottom right corner of the page. Fill in the necessary details
+  To begin, click on the "Add Contact" button, located on the bottom right corner of the page. Fill in the necessary
+  details
   such as the person's name, contact information, and any additional relevant data. Once you're done, hit "Save" to add
   the contact to your list. <br>
 
@@ -26,22 +27,29 @@
   If you need to update any information for a specific contact, simply click on their name in the list. This action will
   take you to an editable view of their details. Here, you can make changes, corrections, or updates as necessary. Don't
   forget to hit "Save" after making your edits.<br>
-  </div>
+</div>
+
+<div class="balken"></div>
 
 
 
 
 
 
-  <mat-card class="search">
-    <mat-card-content>
-      <div class="search-container">
-        <input type="text" class="inputfield" placeholder="Enter a Name" [(ngModel)]="searchQuery" (input)="performSearch()">
-        <p class="search-text">Search for a Customer</p>
-        <img class="search-image" src="assets/img/search.png">
-      </div>
-    </mat-card-content>
-  </mat-card>
+
+
+
+
+<mat-card class="search">
+  <mat-card-content>
+    <div class="search-container">
+      <input type="text" class="inputfield" placeholder="Enter a Name" [(ngModel)]="searchQuery"
+        (input)="performSearch()">
+      <p class="search-text">Search for a Customer</p>
+      <img class="search-image" src="assets/img/search.png">
+    </div>
+  </mat-card-content>
+</mat-card>
 
 
 
@@ -51,19 +59,19 @@
 <mat-card>
   <mat-card-content>
     <table class="user-table">
-      
-        <tr class="info-table">
-          <th>Name</th>
-          <th>E-Mail</th>
-          <th>City</th>
-        </tr>
 
-        <tr class="user" routerLink='{{user.id}}' *ngFor="let user of filteredUsers">
-          <td>{{user.firstName}} {{user.lastName}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.city}}</td>
-        </tr>
-      
+      <tr class="info-table">
+        <th>Name</th>
+        <th>E-Mail</th>
+        <th>City</th>
+      </tr>
+
+      <tr class="user" routerLink='{{user.id}}' *ngFor="let user of filteredUsers">
+        <td>{{user.firstName}} {{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.city}}</td>
+      </tr>
+
 
     </table>
   </mat-card-content>

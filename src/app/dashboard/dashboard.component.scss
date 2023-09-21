@@ -2,8 +2,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    margin-bottom: 5vh;
 }
 
 .headline {
@@ -11,7 +9,7 @@
     align-items: center;
 
     font-size: 48px;
-    color: rgb(63, 81, 181);
+    color: black;
     margin-top: 16px;
     margin-bottom: 32px;
     font-weight: 550;
@@ -22,12 +20,27 @@
     }
 }
 
+//--------------------------- DASHBOARD INFORMATION ------------------------ //
+
 .dashboard-information {
     border: 5px solid rgb(63, 81, 181);
     padding: 16px;
     background-color: white;
-    margin-bottom: 64px;
+    margin-bottom: 32px;
 }
+
+@keyframes slideInFromRight {
+    from {
+      transform: translate3d(100%, 0, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .slide-in {
+    animation: slideInFromRight 0.4s ease-in-out;
+  }
 
 // ------------------------------------ DASHBOARD ---------------------------- //
 .dashboard {
@@ -57,7 +70,7 @@
 }
 
 
-.user-dashboard {
+.blue-dashboard {
     background-color: rgb(63, 81, 181);
     color: white;
     font-size: 24px;
@@ -93,7 +106,7 @@
     }
 }
 
-.note-dashboard {
+.grey-dashboard {
     background-color: rgb(173, 179, 214);
     color: white;
     font-size: 24px;
@@ -107,80 +120,6 @@
     min-width: 10vw;
     max-width: 10vw;
     padding: 16px;
-
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: center;
-
-    .amount-number {
-        font-size: 70px;
-    }
-
-    transition: transform 0.3s ease,
-    box-shadow 0.3s ease,
-    width 0.3s ease,
-    height 0.3s ease;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
-
-    &:hover {
-        transform: scale(1.1);
-        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
-        cursor: pointer;
-    }
-}
-
-.event-dashboard {
-    background-color: rgb(231, 167, 47);
-    color: white;
-    font-size: 24px;
-    font-weight: 600;
-    border: 8px solid rgb(231, 167, 47);
-    ;
-    border-radius: 10px;
-    min-height: 15vh;
-    max-height: 15vh;
-    min-width: 10vw;
-    max-width: 10vw;
-    padding: 16px;
-
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: center;
-
-    .amount-number {
-        font-size: 70px;
-    }
-
-    transition: transform 0.3s ease,
-    box-shadow 0.3s ease,
-    width 0.3s ease,
-    height 0.3s ease;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
-
-    &:hover {
-        transform: scale(1.1);
-        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
-        cursor: pointer;
-    }
-}
-
-
-
-.company-dashboard {
-    background-color: rgb(172, 44, 44);
-    color: white;
-    font-size: 24px;
-    font-weight: 600;
-    border: 8px solid rgb(172, 44, 44);
-    border-radius: 10px;
-    min-height: 15vh;
-    max-height: 15vh;
-    min-width: 10vw;
-    max-width: 10vw;
-    padding: 16px;
-    text-align: center;
 
     display: flex;
     justify-content: space-evenly;
@@ -235,12 +174,16 @@
     width: auto;
 }
 
-#asschart{
+#employees{
     height: 400px !important;
     width: auto;
 }
 
-#thirdChart{
-    height: 400px !important;
-    width: auto;
+
+  // ------------------------ BALKEN ---------------- //
+  .balken {
+    height: 25px;
+    width: 100% !important;
+    margin-bottom: 64px;
+    background: linear-gradient(to right, rgb(63, 81, 181) 0%, rgb(63, 81, 181) 45%, rgb(173,179,214) 55%, rgb(173,179,214) 100%);
 }

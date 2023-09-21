@@ -6,7 +6,7 @@
 
 
 
-<div class="notes-information" *ngIf="showInstructions">
+<div class="notes-information" [ngClass]="{'slide-in': showInstructions}" *ngIf="showInstructions">
 
   <h2> <b> Welcome to the Notes Page of my CRM System! </b> </h2>
 
@@ -26,7 +26,7 @@
   <b>Happy noting!</b>
 </div>
 
-
+<div class="balken"></div>
 
 
 

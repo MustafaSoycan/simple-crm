@@ -13,6 +13,8 @@ export class LoginComponent {
   password: string = '';
   errorMessage: string = '';
   loading = false;
+
+  hide = true;
   constructor(private router: Router, private firestore: Firestore) {}
 
   login() {

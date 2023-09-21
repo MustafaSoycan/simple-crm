@@ -62,7 +62,7 @@
 
 .not-a-user-card{
     padding: 24px;
-    width: 308px;
+    width: 343px;
     margin-top: 32px;
     display: flex;
     justify-content: center;
@@ -97,8 +97,9 @@
 
 .error-message{
     margin-bottom: 16px;
-    width: 212px;
+    width: 247px;
     color: red;
+    text-align: center;
 }
 
 
@@ -106,4 +107,10 @@
 
 .progress-bar{
     margin-bottom: 16px;
+}
+
+
+.input-fields{
+    display: flex;
+    flex-direction: column;
 }

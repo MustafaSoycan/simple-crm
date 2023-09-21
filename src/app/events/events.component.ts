@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { DialogAddEventComponent } from '../dialog-add-event/dialog-add-event.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
-import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-events',

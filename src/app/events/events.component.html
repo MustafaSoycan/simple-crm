@@ -4,10 +4,7 @@
     alt="picture of question mark">
 </div>
 
-
-
-
-<div class="customer-information" *ngIf="showInstructions">
+<div class="customer-information" [ngClass]="{'slide-in': showInstructions}" *ngIf="showInstructions">
   <h2> <b> Welcome to the Customer Overview page of my CRM system! </b> </h2>
 
 
@@ -31,6 +28,11 @@
   forget to hit "Save" after making your edits.<br>
 </div>
 
+<div class="balken"></div>
+
+
+
+
 
 <mat-card class="search">
   <mat-card-content>
@@ -46,7 +48,6 @@
 
 
 <!-- ---------------EVENTS LIST ------------------>
-<!-- ---------------COMPANYS LIST ------------------>
 <div class="mt-32" *ngFor="let event of filteredEvents" routerLink='{{event.id}}'>
 
   <!--COMPANY ADRESS-->
@@ -56,9 +57,7 @@
         {{event.title}}
       </h1>
 
-      <b class="company-address">
-        {{event.description}} <br>
-      </b>
+
     </div>
 
   </div>
@@ -72,11 +71,11 @@
         </p>
 
         <div class="assigned-user" *ngIf="event.assignedUsers.length > 0; else noUsersAssigned">
-         <b class="date"> {{ event.date.toDate()}}</b>
+          <b class="date"> {{ event.date.toDate() }}</b>
         </div>
       </div>
 
-     
+
       <ng-template #noUsersAssigned>
         <b class="no-user-assigned">No user assigned, go to a Users Profil to assign User to Company</b>
       </ng-template>

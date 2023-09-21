@@ -1,13 +1,10 @@
 <div class="header-container">
-  <h1 class="headline">Company Overview <img src="assets/img/company.png" alt="picture of user-icon"></h1>
+  <h1 class="headline">Companys <img src="assets/img/company.png" alt="picture of user-icon"></h1>
   <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png"
     alt="picture of question mark">
 </div>
 
-
-
-
-<div class="customer-information" *ngIf="showInstructions">
+<div class="customer-information" [ngClass]="{'slide-in': showInstructions}" *ngIf="showInstructions">
   <h2> <b> Welcome to the Customer Overview page of my CRM system! </b> </h2>
 
 
@@ -30,6 +27,11 @@
   take you to an editable view of their details. Here, you can make changes, corrections, or updates as necessary. Don't
   forget to hit "Save" after making your edits.<br>
 </div>
+
+<div class="balken"></div>
+
+
+
 
 
 
@@ -72,7 +74,7 @@
 
       <div class="currently-assigned-container">
         <p class="currently-assigned"> Assigned Users
-          
+
         </p>
       </div>
 
@@ -89,7 +91,7 @@
   <div class="building-image-container">
     <img class="building-image" src="assets/img/building.png" alt="">
   </div>
-  
+
 
 </div>
 

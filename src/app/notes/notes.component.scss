@@ -21,12 +21,27 @@
     }
 }
 
+//-------------------------------- INFORMATION CONTAINER ---------------------- //
 .notes-information {
     padding: 16px;
     border: 5px solid rgb(63, 81, 181);
     background-color: white;
     margin-bottom: 32px;
 }
+
+@keyframes slideInFromRight {
+    from {
+      transform: translate3d(100%, 0, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .slide-in {
+    animation: slideInFromRight 0.4s ease-in-out;
+  }
+  
 
 .add-note-container {
     margin-bottom: 32px;
@@ -163,4 +178,13 @@
     position: absolute;
     right: 0;
     top: 0;
+}
+
+// ------------------------ BALKEN ---------------- //
+.balken {
+    height: 25px;
+    width: 100% !important;
+    margin-bottom: 64px;
+    background: linear-gradient(to right, rgb(63, 81, 181) 0%, rgb(63, 81, 181) 45%, rgb(114, 130, 226) 55%, rgb(96, 114, 218) 100%);
+ 
 }

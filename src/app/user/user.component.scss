@@ -14,7 +14,7 @@ mat-card-content {
     align-items: center;
     
     font-size: 48px;
-    color: rgb(63,81,181);
+    color: black;
     margin-top: 16px;
     margin-bottom: 32px;
     font-weight:550;
@@ -39,6 +39,8 @@ mat-card-content {
     }
 }
 
+//---------------------- INFORMATION CONTAINER ---------------------- //
+
 .customer-information{
     border: 5px solid rgb(63,81,181);
     padding: 16px;
@@ -46,9 +48,21 @@ mat-card-content {
     background-color: white;
 }
 
-
-
-
+@keyframes slideInFromRight {
+    from {
+      transform: translate3d(100%, 0, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .slide-in {
+    animation: slideInFromRight 0.4s ease-in-out;
+  }
+  
+ 
+  
 
 .add-user-button {
     position: absolute;
@@ -56,6 +70,7 @@ mat-card-content {
     bottom: 56px;
 }
 
+//---------------------------------- USER TABLE ----------------------- //
 .user-table {
     width: 100%;
     border-collapse: collapse;
@@ -106,7 +121,7 @@ mat-card-content {
 
 // ------------------------------- SEARCH INPUTFIELD ---------------------------//
 .search{
-    margin-bottom: 64px;
+    margin-bottom: 32px;
 }
 
 .search-container{
@@ -144,4 +159,12 @@ mat-card-content {
 .search-image{
     height: 40px;
     width: auto;
+}
+
+// ------------------------ BALKEN ---------------- //
+.balken {
+    height: 25px;
+    width: 100% !important;
+    margin-bottom: 64px;
+    background: linear-gradient(to right, rgb(63, 81, 181) 0%, rgb(63, 81, 181) 45%, rgb(173,179,214) 55%, rgb(173,179,214) 100%);
 }

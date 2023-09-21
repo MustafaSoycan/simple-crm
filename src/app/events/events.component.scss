@@ -42,6 +42,21 @@
     background-color: white;
 }
 
+@keyframes slideInFromRight {
+    from {
+        transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slide-in {
+    animation: slideInFromRight 0.4s ease-in-out;
+}
+
+
 // -------------------------- ADD Event BUTTON -------------------//
 
 .add-event-button {
@@ -59,9 +74,9 @@
     margin-bottom: 32px;
     background-color: rgba(252, 167, 10, 0.753);
     transition: transform 0.3s ease,
-    box-shadow 0.3s ease,
-    width 0.3s ease,
-    height 0.3s ease;
+        box-shadow 0.3s ease,
+        width 0.3s ease,
+        height 0.3s ease;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
 
     &:hover {
@@ -88,6 +103,7 @@
     justify-content: center;
     flex-direction: column;
     padding: 16px;
+
     img {
         height: 20px;
         object-fit: cover;
@@ -149,6 +165,7 @@
 .company {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 16px;
 }
 
@@ -169,6 +186,7 @@
 
 .mt-32 {
     display: flex;
+    justify-content: space-between;
     margin-bottom: 32px;
     position: relative;
     height: 150px;
@@ -191,7 +209,7 @@
 
 //------------------ COMPANY CARD BACKGROUND --------------- ///
 
-.card-image-container{
+.card-image-container {
     display: flex;
     align-items: center;
 }
@@ -204,39 +222,45 @@
 
 // SCSS
 .schraeger-balken {
-      position: absolute;
-      top: 0;
-      left: 40%;
-      right: 30%;
-      width: 20vw;
-      height: 100%;
-      
-      background-color: rgb(219, 157, 22); // Hintergrundfarbe des Schrägbalkens
-      transform-origin: 0;
-      transform: skew(-10deg);
-      color: white;
-  }
+    position: absolute;
+    top: 0;
+    left: 40%;
+    right: 30%;
+    width: 20vw;
+    height: 100%;
+    background-color: rgb(219, 157, 22); // Hintergrundfarbe des Schrägbalkens      
+    color: white;
+}
 
-  .building-image-container{
+.building-image-container {
     display: flex;
     align-items: center;
 
-  }
+}
 
-  .building-image{
+.building-image {
     position: absolute;
     right: 8px;
     height: 90px;
-  }
+}
 
-  .no-user-assigned{
+.no-user-assigned {
     margin-left: 8px;
     margin-right: 8px;
     display: flex;
     justify-content: center;
-  }
+}
 
 
-  .date{
+.date {
     padding: 16px;
-  }
+}
+
+
+// ------------------------ BALKEN ---------------- //
+.balken {
+    height: 25px;
+    width: 100% !important;
+    margin-bottom: 64px;
+    background: linear-gradient(to right, rgb(63, 81, 181) 0%, rgb(63, 81, 181) 45%, rgb(173, 179, 214) 55%, rgb(173, 179, 214) 100%);
+}

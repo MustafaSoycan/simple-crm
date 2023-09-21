@@ -18,30 +18,27 @@
         <div class="formular">
             <form class="example-form" (submit)="submitForm($event)">
                 <div>
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field class="example-full-width margin-bottom">
                         <mat-label>Email</mat-label>
-                        <input type="email" matInput placeholder="Ex. pat@example.com" [(ngModel)]="email" name="email" required>
+                        <input type="email" matInput placeholder="Ex. pat@example.com" [(ngModel)]="email" name="email" [formControl]="emailFormControl">
+                        <mat-error *ngIf="emailFormControl.invalid">{{getEmailErrorMessage()}}</mat-error>
                     </mat-form-field>
                 </div>
 
 
 
                 <div>
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field class="example-full-width margin-bottom">
                         <mat-label>Password</mat-label>
-                        <input type="password" matInput [(ngModel)]="password" name="password">
+                        <input type="password" matInput [(ngModel)]="password" name="password" [formControl]="passwordFormControl">
+                        <mat-error *ngIf="passwordFormControl.invalid">{{getPasswordErrorMessage()}}</mat-error>
                     </mat-form-field>
                 </div>
 
-            
-
-                <div class="error-message" *ngIf="errorMessage">
-                    {{ errorMessage }}
-                </div>
 
    
         <div class="login-button">
-            <button mat-raised-button color="primary">Register</button>
+            <button mat-raised-button color="primary" [disabled]="!canAddUser() || loading">Register</button>
         </div>
 
         </form>
