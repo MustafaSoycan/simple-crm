@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Firestore, collection, collectionData, getCountFromServer, getDocs, query, where } from '@angular/fire/firestore';
 import { Chart, registerables } from 'node_modules/chart.js';
 import { Company } from 'src/models/company.class';
+import { DatePipe } from '@angular/common';
+
 Chart.register(...registerables)
 
 @Component({
@@ -29,24 +31,24 @@ export class DashboardComponent implements OnInit {
   systemAdministratorCount: number = 0;
   dataAnalystCount: number = 0;
 
-  constructor(private firestore: Firestore) { }
+  constructor(private firestore: Firestore, private datePipe: DatePipe) { }
 
   async ngOnInit(): Promise<void> {
-    
+
     await this.getUserData();
     await this.getEventData();
     await this.getNoteData();
     await this.getCompanyData();
 
-      this.updateUserCountsByJobTitle();
-    
+    this.updateUserCountsByJobTitle();
+
 
     console.log('This is a test if the companys are global:', this.companys)
 
     this.updateTime();
     setInterval(() => this.updateTime(), 1000);
 
-    
+
   }
 
 
@@ -65,103 +67,89 @@ export class DashboardComponent implements OnInit {
     const data = [];
 
     for (let i = 0; i < this.companys.length; i++) {
-        labels.push(this.companys[i]['name']);
-        data.push(this.companys[i]['monthlySales'])
+      labels.push(this.companys[i]['name']);
+      data.push(this.companys[i]['monthlySales'])
     }
 
-    const barColors = ['rgb(63,81,181)', 'rgb(43,100,181)', 'rgb(33,150,243)', 'rgb(33,150,223)', 'rgb(232,67,35)' ]
+    const barColors = ['rgb(63,81,181)', 'rgb(43,100,181)', 'rgb(33,150,243)', 'rgb(33,150,223)', 'rgb(232,67,35)']
 
     new Chart("monthlySales", {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'Current Sales of the Companys',
-                data: data, // Hier wird das Array mit den Daten eingefügt
-                backgroundColor: barColors,
-                borderWidth: 10,
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Current Sales of the Companys',
+          data: data, // Hier wird das Array mit den Daten eingefügt
+          backgroundColor: barColors,
+          borderWidth: 10,
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
+      }
     });
-}
+  }
 
 
-renderSecondChart() {
+  renderSecondChart() {
 
-  const labels = [];
+    const labels = [];
     const data = [];
 
     for (let i = 0; i < this.companys.length; i++) {
-        labels.push(this.companys[i]['name']);
-        data.push(this.companys[i]['amountEmployees'])
+      labels.push(this.companys[i]['name']);
+      data.push(this.companys[i]['amountEmployees'])
     }
- 
-  const barColors = ['rgb(212,67,35)', 'orange', 'rgb(182,67,35)', 'rgb(250,215,8)']
 
-  new Chart("employees", {
+    const barColors = ['rgb(212,67,35)', 'orange', 'rgb(182,67,35)', 'rgb(250,215,8)']
+
+    new Chart("employees", {
       type: 'bar',
       data: {
-          labels: labels,
-          datasets: [{
-              label: 'Amount of Employees of the Companys',
-              data: data, 
-              backgroundColor: barColors,
-              borderWidth: 10,
+        labels: labels,
+        datasets: [{
+          label: 'Amount of Employees of the Companys',
+          data: data,
+          backgroundColor: barColors,
+          borderWidth: 10,
 
-          }]
+        }]
       },
       options: {
-          scales: {
-              y: {
-                  beginAtZero: true
-              }
+        scales: {
+          y: {
+            beginAtZero: true
           }
+        }
       }
-  });
-}
+    });
+  }
 
-renderThirdChart(){
-  const labels = [];
-    const data = [];
-
-    for (let i = 0; i < this.users.length; i++) {
-        labels.push(this.users[i]['jobTitle']);
-        data.push(this.users[i]['jobTitle'])
-    }
- 
-  const barColors = ['rgb(212,67,35)', 'orange', 'rgb(182,67,35)', 'rgb(250,215,8)']
-
-  new Chart("pie", {
+  renderThirdChart() {
+    const ctx = document.getElementById('pieChart') as HTMLCanvasElement;
+    new Chart(ctx, {
       type: 'doughnut',
       data: {
-          labels: labels,
-          datasets: [{
-              label: 'Current Users',
-              data: data, 
-              backgroundColor: barColors,
-              borderWidth: 10,
-
-          }]
+        labels: ['Hoch', 'Mittel', 'Niedrig'],
+        datasets: [{
+          data: [30, 50, 20], // Künstliche Daten für die Umsatzklasse
+          backgroundColor: ['rgb(63,81,181)', 'rgb(43,100,181)', 'rgb(33,150,243)'],
+          borderWidth: 1
+        }]
       },
       options: {
-          scales: {
-              y: {
-                  beginAtZero: true
-              }
-          }
+        responsive: true,
+        maintainAspectRatio: false,
       }
-  });
-}
+    });
+  }
 
 
-  async getUserData(){
+  async getUserData() {
     let usersCollection = collection(this.firestore, 'users');
     const usersSnapshot = await getCountFromServer(usersCollection)
     console.log('Amount of Users: ', usersSnapshot.data().count);
@@ -175,21 +163,21 @@ renderThirdChart(){
     })
   }
 
-  async getEventData(){
+  async getEventData() {
     let eventsCollection = collection(this.firestore, 'events');
     const eventsSnapshot = await getCountFromServer(eventsCollection)
     console.log('Amount of events: ', eventsSnapshot.data().count);
     this.eventCount = eventsSnapshot.data().count;
   }
 
-  async getNoteData(){
+  async getNoteData() {
     let notesCollection = collection(this.firestore, 'notes');
     const notesSnapshot = await getCountFromServer(notesCollection)
     console.log('Amount of Notes: ', notesSnapshot.data().count);
     this.noteCount = notesSnapshot.data().count;
   }
- 
-  async getCompanyData(){
+
+  async getCompanyData() {
     // GREIFT AUF DATENBANK IN FIRESTORE ZU
     let companysCollection = collection(this.firestore, 'companys');
 
@@ -198,7 +186,7 @@ renderThirdChart(){
     console.log('Amount of Companys: ', companysSnapshot.data().count);
     this.companyCount = companysSnapshot.data().count;
 
-   // RUFT DATEN DER COMPANYS AB
+    // RUFT DATEN DER COMPANYS AB
     collectionData(companysCollection, { idField: 'id' }).subscribe(companys => {
       this.companys = companys;
       console.log('Current Companys:', this.companys)
@@ -224,7 +212,7 @@ renderThirdChart(){
     const projectManagerQuery = query(collection(this.firestore, 'users'), where('jobTitle', '==', 'Project Manager'));
     const projectManagerSnapshot = await getDocs(projectManagerQuery);
     this.projectManagerCount = projectManagerSnapshot.size;
-    
+
     // Abfrage für Project Manager
     const systemAdministratorQuery = query(collection(this.firestore, 'users'), where('jobTitle', '==', 'System Administrator'));
     const systemAdministratorSnapshot = await getDocs(systemAdministratorQuery);
@@ -234,5 +222,12 @@ renderThirdChart(){
     const dataAnalystQuery = query(collection(this.firestore, 'users'), where('jobTitle', '==', 'Data Analyst'));
     const dataAnalystSnapshot = await getDocs(dataAnalystQuery);
     this.dataAnalystCount = dataAnalystSnapshot.size;
-}
+  }
+
+   getFormattedDate(): string {
+    const currentDate = new Date();
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = new Intl.DateTimeFormat('en-US', options).format(currentDate);
+    return formattedDate;
+  }
 }

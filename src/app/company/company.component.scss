@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
 
-    font-size: 48px;
+    font-size: 40px;
     color: black;
     margin-top: 16px;
     margin-bottom: 32px;
@@ -18,19 +18,19 @@
 
     img {
         margin-left: 16px;
-        height: 70px;
+        height: 40px;
     }
 }
 
 
-.question-mark {
-    height: 60px;
-    width: 60px;
+.question-mark{
+    height: 45px;
+    width: 45px;
 
     margin-left: 16px;
     margin-bottom: 32px;
 
-    &:hover {
+    &:hover{
         cursor: pointer;
         opacity: 0.9;
     }
@@ -77,7 +77,7 @@
 
 // ------------------------------- SEARCH INPUTFIELD ---------------------------//
 .search {
-    margin-bottom: 64px;
+    margin-bottom: 32px;
 }
 
 .search-container {
@@ -241,6 +241,6 @@
 .balken {
     height: 25px;
     width: 100% !important;
-    margin-bottom: 64px;
+    margin-bottom: 32px;
     background: linear-gradient(to right, rgb(54, 152, 244) 0%, rgb(42, 127, 206) 50%, rgb(32, 105, 173) 75%, rgb(25, 87, 145)100%);
 }

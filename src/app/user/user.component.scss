@@ -9,26 +9,26 @@ mat-card-content {
     padding-right: 0;
 }
 
-.headline{
+.headline {
     display: flex;
     align-items: center;
-    
-    font-size: 48px;
+
+    font-size: 40px;
     color: black;
     margin-top: 16px;
     margin-bottom: 32px;
-    font-weight:550;
+    font-weight: 550;
 
-    img{
+    img {
         margin-left: 16px;
-        height: 70px;
+        height: 40px;
     }
 }
 
 
 .question-mark{
-    height: 60px;
-    width: 60px;
+    height: 45px;
+    width: 45px;
 
     margin-left: 16px;
     margin-bottom: 32px;
@@ -165,6 +165,6 @@ mat-card-content {
 .balken {
     height: 25px;
     width: 100% !important;
-    margin-bottom: 64px;
-    background: linear-gradient(to right, rgb(244,67,54) 0%, rgb(209, 51, 40) 50%, rgb(182, 40, 30) 75%, rgb(146, 32, 24) 100%);
+    margin-bottom: 32px;
+    background: linear-gradient(to right, rgb(54, 152, 244) 0%, rgb(42, 127, 206) 50%, rgb(32, 105, 173) 75%, rgb(25, 87, 145)100%);
 }

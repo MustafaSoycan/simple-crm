@@ -1,8 +1,12 @@
-
 .header-container{
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+}
+
+mat-card-content {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .headline {
@@ -17,7 +21,7 @@
 
     img {
         margin-left: 16px;
-        height: 50px;
+        height: 40px;
     }
 }
 
@@ -44,46 +48,51 @@
   }
 
 // ------------------------------------ DASHBOARD ---------------------------- //
-.dashboard {
+.dashboard{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10vh;
     
-    
-    .digital-clock {
-        border: 10px solid black;
-        border-radius: 10px;
-        padding: 48px;
-        display: flex;
-        align-items: center;
-        font-size: 80px;
-
-        .time {
-            img {
-                height: 70px;
-                width: 70px;
-            }
-
-            color: black;
-        }
-    }
+    margin-bottom: 64px;
 }
 
+.developers-dashboard {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    padding: px;
+    width: fit-content;
+ }
+
+.crm-dashboard {
+   display: flex;
+   flex-direction: column;
+  
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+   padding: px;
+   width: fit-content;
+}
+
+.crm-dashboard-first-row{
+    display: flex;
+}
+
+.crm-dashboard-second-row{
+    display: flex;
+}
 
 .blue-dashboard {
     background-color: rgb(63, 81, 181);
     color: white;
     font-size: 24px;
     font-weight: 600;
-    border: 8px solid rgb(63, 81, 181);
-    border-radius: 10px;
+    border: 4px solid rgb(63, 81, 181);
 
-    min-height: 15vh;
-    max-height: 15vh;
-    min-width: 10vw;
-    max-width: 10vw;
+    min-height: 10vh;
+    max-height: 10vh;
+    min-width: 8vw;
+    max-width: 8vw;
     padding: 16px;
+    margin: 16px;
 
     display: flex;
     justify-content: space-evenly;
@@ -111,15 +120,15 @@
     color: black;
     font-size: 24px;
     font-weight: 600;
-    border: 8px solid rgb(173, 179, 214);
+    border: 4px solid rgb(173, 179, 214);
 
-    border-radius: 10px;
     
-    min-height: 15vh;
-    max-height: 15vh;
-    min-width: 10vw;
-    max-width: 10vw;
+    min-height: 10vh;
+    max-height: 10vh;
+    min-width: 8vw;
+    max-width: 8vw;
     padding: 16px;
+    margin: 16px;
 
     display: flex;
     justify-content: space-evenly;
@@ -146,10 +155,9 @@
 
 
 
-
 .question-mark{
-    height: 60px;
-    width: 60px;
+    height: 45px;
+    width: 45px;
 
     margin-left: 16px;
     margin-bottom: 32px;
@@ -186,15 +194,27 @@
     width: 400px !important;
 }
 
+.container{
+
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
 
   // ------------------------ BALKEN ---------------- //
   .balken {
-    height: 20px;
+    height: 25px;
     width: 100% !important;
     margin-bottom: 64px;
-    background-color: rgb(63, 81, 181);
+    background: linear-gradient(to right, rgb(54, 152, 244) 0%, rgb(42, 127, 206) 50%, rgb(32, 105, 173) 75%, rgb(25, 87, 145)100%);
 }
 
 .center{
     text-align: center;
+}
+
+
+.date{
+    font-weight: 100;
+    color: grey;
+    font-size: 32px;
 }

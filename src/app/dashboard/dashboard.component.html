@@ -1,82 +1,113 @@
 <div class="header-container">
-  <h1 class="headline">Dashboard <img src="assets/img/dashboard.png" alt="picture of dashboard-icon"></h1>
+  <div class="headline">Dashboard <img src="assets/img/dashboard.png" alt=""></div>
   <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png"
     alt="picture of question mark">
 </div>
 
 <div class="dashboard-information" [ngClass]="{'slide-in': showInstructions}" *ngIf="showInstructions">
   <h2> <b> Welcome to the CRM Dashboard! </b> </h2>
-
   <b>Welcome to my dashboard! Here, you can track the number of users, companys, events and notes.</b> <br>
   <b>Click on a Container and you get to the Page you want!</b>
   <br>
-
 </div>
 
 <div class="balken"></div>
 
 
 
+<div class="dashboard">
 
 
-  <div class="dashboard">
+
+<div class="crm-dashboard">
+
+  <div class="crm-dashboard-first-row">
     <div class="blue-dashboard" routerLink="/user">
       <p class="center">USERS:</p>
       <p class="amount-number">{{ userCount }}</p>
     </div>
-  
+
     <div class="blue-dashboard" routerLink="/notes">
       <p class="center">NOTES:</p>
       <p class="amount-number">{{ noteCount }}</p>
     </div>
-  
+  </div>
+
+
+  <div class="crm-dashboard-second-row">
     <div class="blue-dashboard" routerLink="/company">
       <p class="center">COMPANYS:</p>
       <p class="amount-number">{{ companyCount }}</p>
     </div>
-  
+
     <div class="blue-dashboard" routerLink="/events">
       <p class="center">EVENTS:</p>
       <p class="amount-number">{{ eventCount }}</p>
     </div>
   </div>
 
-  <div class="balken"></div>
-
-
-<div class="dashboard">
-  <div class="grey-dashboard" routerLink="/user">
-    <p class="center">Frontend Developers:</p>
-    <p class="amount-number">{{ frontendDeveloperCount }}</p>
-  </div>
-
-  <div class="grey-dashboard" routerLink="/user">
-    <p class="center">Backend Developers:</p>
-    <p class="amount-number">{{ backendDeveloperCount }}</p>
-  </div>
-
-  <div class="grey-dashboard" routerLink="/user">
-    <p class="center">Projekt Managers:</p>
-    <p class="amount-number">{{ projectManagerCount }}</p>
-  </div>
-
-  <div class="grey-dashboard" routerLink="/user">
-    <p class="center">System Administrators:</p>
-    <p class="amount-number">{{ systemAdministratorCount }}</p>
-  </div>
-
-  <div class="grey-dashboard" routerLink="/user">
-    <p class="center">Data Analysts:</p>
-    <p class="amount-number">{{ dataAnalystCount }}</p>
-  </div>
 </div>
 
 
-<div class="balken"></div>
+
+
+<div class="developers-dashboard">
+
+  <div class="crm-dashboard-first-row">
+
+    <div class="grey-dashboard" routerLink="/user">
+      <p class="center">Frontend Developers:</p>
+      <p class="amount-number">{{ frontendDeveloperCount }}</p>
+    </div>
+
+    <div class="grey-dashboard" routerLink="/user">
+      <p class="center">Backend Developers:</p>
+      <p class="amount-number">{{ backendDeveloperCount }}</p>
+    </div>
+
+    <div class="grey-dashboard" routerLink="/user">
+      <p class="center">Projekt Managers:</p>
+      <p class="amount-number">{{ projectManagerCount }}</p>
+    </div>
+
+  </div>
+
+  <div class="crm-dashboard-second-row">
+
+    <div class="grey-dashboard" routerLink="/user">
+      <p class="center">System Administrators:</p>
+      <p class="amount-number">{{ systemAdministratorCount }}</p>
+    </div>
+
+    <div class="grey-dashboard" routerLink="/user">
+      <p class="center">Data Analysts:</p>
+      <p class="amount-number">{{ dataAnalystCount }}</p>
+    </div>
+
+    <div class="grey-dashboard" routerLink="/user">
+      <p class="center">Data Analysts:</p>
+      <p class="amount-number">{{ dataAnalystCount }}</p>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
 
 
 <div class="charts">
-  <canvas id="monthlySales"> </canvas>
-  <canvas id="pie"></canvas>
-  <canvas id="employees"> </canvas>
+  <div class="container">
+    <canvas id="monthlySales"> </canvas>
+  </div>
+  
+  <div class="container">
+    <canvas id="pieChart"></canvas>
+  </div>
+ 
+
+  <div class="container">
+    <canvas id="employees"> </canvas>
+  </div>
+  
 </div>
