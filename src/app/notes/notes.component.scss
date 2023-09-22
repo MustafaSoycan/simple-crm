@@ -59,20 +59,10 @@
     }
 }
 
-.add-notes-button {
-    height: 60px;
+.add-note-button {
     width: 100%;
-    color: white;
-    font-size: 32px;
-    font-weight: bold;
-    background-color: rgb(63, 81, 181);
-    border: unset;
-    margin-bottom: 64px;
-
-    &:hover {
-        cursor: pointer;
-        background-color: rgb(78, 98, 209);
-    }
+    height: 5vh;
+    margin-bottom: 32px;
 }
 
 .notes-board {
@@ -81,17 +71,16 @@
 }
 
 .note {
+    min-height: 30vh;
     min-width: 10vw;
     max-width: 10vw;
-    padding: 16px;
     background-color: white;
     aspect-ratio: 1;
     margin-right: 16px;
     margin-bottom: 16px;
     color: black;
 
-    font-size: 24px;
-    font-weight: bold;
+
 
     display: flex;
     flex-direction: column;
@@ -100,7 +89,7 @@
 
     position: relative;
     background: white;
-    font-size: 28px;
+    font-size: 24px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     transition: all 1s;
@@ -136,8 +125,8 @@
         &:before,
         &:after {
 
-            width: 100%;
-            height: 100%;
+            width: 20%;
+            height: 20%;
         }
     }
 
@@ -146,7 +135,13 @@
 }
 
 .note-title {
+    padding-top: 8px;
+    padding-bottom: 8px;
     text-align: center;
+    background-color: rgb(230, 230, 230);
+
+    font-size: 24px;
+    font-weight: 300;
 }
 
 .note-description {
@@ -185,6 +180,5 @@
     height: 25px;
     width: 100% !important;
     margin-bottom: 64px;
-    background: linear-gradient(to right, rgb(63, 81, 181) 0%, rgb(63, 81, 181) 45%, rgb(114, 130, 226) 55%, rgb(96, 114, 218) 100%);
- 
+    background-color: rgb(173,179,214);
 }

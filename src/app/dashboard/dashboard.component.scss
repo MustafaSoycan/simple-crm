@@ -1,3 +1,4 @@
+
 .header-container{
     display: flex;
     justify-content: space-between;
@@ -8,7 +9,7 @@
     display: flex;
     align-items: center;
 
-    font-size: 48px;
+    font-size: 40px;
     color: black;
     margin-top: 16px;
     margin-bottom: 32px;
@@ -16,7 +17,7 @@
 
     img {
         margin-left: 16px;
-        height: 70px;
+        height: 50px;
     }
 }
 
@@ -107,8 +108,7 @@
 }
 
 .grey-dashboard {
-    background-color: rgb(173, 179, 214);
-    color: white;
+    color: black;
     font-size: 24px;
     font-weight: 600;
     border: 8px solid rgb(173, 179, 214);
@@ -162,6 +162,8 @@
 
 
 
+
+
 //--------------------------- CHART ------------------------- //
 
 .charts{
@@ -171,19 +173,28 @@
 
 #monthlySales{
     height: 400px !important;
-    width: auto;
+    width: 600px !important;
 }
 
 #employees{
     height: 400px !important;
-    width: auto;
+    width: 600px !important;
+}
+
+#pie{
+    height: 400px !important;
+    width: 400px !important;
 }
 
 
   // ------------------------ BALKEN ---------------- //
   .balken {
-    height: 25px;
+    height: 20px;
     width: 100% !important;
     margin-bottom: 64px;
-    background: linear-gradient(to right, rgb(63, 81, 181) 0%, rgb(63, 81, 181) 45%, rgb(173,179,214) 55%, rgb(173,179,214) 100%);
+    background-color: rgb(63, 81, 181);
+}
+
+.center{
+    text-align: center;
 }

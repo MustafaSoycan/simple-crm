@@ -1,6 +1,6 @@
 .mat-drawer-container{
     height: 100vh;
-}
+    background-color: rgb(247,249,252);}
 
 .menu-icon{
         cursor: pointer;;
@@ -60,25 +60,3 @@ mat-toolbar-row, mat-toolbar{
 }
 
 
-/* Die Haupt-Scrollbar */
-::-webkit-scrollbar {
-    width: 10px; /* Breite der Scrollbar anpassen */
-    color: blue;
-  }
-  
-  /* Der Daumen (der bewegliche Teil der Scrollbar) */
-  ::-webkit-scrollbar-thumb {
-    background-color: blue; /* Hintergrundfarbe der Scrollbar-Daumen */
-    border-radius: 5px; /* Runde Ecken für den Daumen */
-    color: blue;
-  }
-  
-  /* Die Schienen (der Bereich, in dem der Daumen bewegt wird) */
-  ::-webkit-scrollbar-track {
-    background-color: #f0f0f0; /* Hintergrundfarbe der Scrollbar-Schiene */
-  }
-  
-  /* Hervorhebung beim Überfahren mit der Maus */
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: lightblue; /* Hellere Hintergrundfarbe beim Überfahren */
-  }

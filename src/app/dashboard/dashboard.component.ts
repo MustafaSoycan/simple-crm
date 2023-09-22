@@ -21,8 +21,13 @@ export class DashboardComponent implements OnInit {
   showInstructions: boolean = false; // Neue Variable hinzugefügt
 
   companys: any;
+  users: any;
 
- 
+  frontendDeveloperCount: number = 0;
+  backendDeveloperCount: number = 0;
+  projectManagerCount: number = 0;
+  systemAdministratorCount: number = 0;
+  dataAnalystCount: number = 0;
 
   constructor(private firestore: Firestore) { }
 
@@ -33,6 +38,7 @@ export class DashboardComponent implements OnInit {
     await this.getNoteData();
     await this.getCompanyData();
 
+      this.updateUserCountsByJobTitle();
     
 
     console.log('This is a test if the companys are global:', this.companys)
@@ -107,7 +113,41 @@ renderSecondChart() {
               label: 'Amount of Employees of the Companys',
               data: data, 
               backgroundColor: barColors,
-              borderWidth: 10
+              borderWidth: 10,
+
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+}
+
+renderThirdChart(){
+  const labels = [];
+    const data = [];
+
+    for (let i = 0; i < this.users.length; i++) {
+        labels.push(this.users[i]['jobTitle']);
+        data.push(this.users[i]['jobTitle'])
+    }
+ 
+  const barColors = ['rgb(212,67,35)', 'orange', 'rgb(182,67,35)', 'rgb(250,215,8)']
+
+  new Chart("pie", {
+      type: 'doughnut',
+      data: {
+          labels: labels,
+          datasets: [{
+              label: 'Current Users',
+              data: data, 
+              backgroundColor: barColors,
+              borderWidth: 10,
+
           }]
       },
       options: {
@@ -126,6 +166,13 @@ renderSecondChart() {
     const usersSnapshot = await getCountFromServer(usersCollection)
     console.log('Amount of Users: ', usersSnapshot.data().count);
     this.userCount = usersSnapshot.data().count;
+
+    // RUFT DATEN DER COMPANYS AB
+    collectionData(usersCollection, { idField: 'id' }).subscribe(users => {
+      this.users = users;
+      console.log('Users:', this.users)
+      this.renderThirdChart();
+    })
   }
 
   async getEventData(){
@@ -157,8 +204,35 @@ renderSecondChart() {
       console.log('Current Companys:', this.companys)
       this.renderFirstChart();
       this.renderSecondChart();
+      this.renderThirdChart();
     })
   }
 
 
+  async updateUserCountsByJobTitle() {
+    // Abfrage für Frontend Developer
+    const frontendDeveloperQuery = query(collection(this.firestore, 'users'), where('jobTitle', '==', 'Frontend Developer'));
+    const frontendDeveloperSnapshot = await getDocs(frontendDeveloperQuery);
+    this.frontendDeveloperCount = frontendDeveloperSnapshot.size;
+
+    // Abfrage für Backend Developer
+    const backendDeveloperQuery = query(collection(this.firestore, 'users'), where('jobTitle', '==', 'Backend Developer'));
+    const backendDeveloperSnapshot = await getDocs(backendDeveloperQuery);
+    this.backendDeveloperCount = backendDeveloperSnapshot.size;
+
+    // Abfrage für Project Manager
+    const projectManagerQuery = query(collection(this.firestore, 'users'), where('jobTitle', '==', 'Project Manager'));
+    const projectManagerSnapshot = await getDocs(projectManagerQuery);
+    this.projectManagerCount = projectManagerSnapshot.size;
+    
+    // Abfrage für Project Manager
+    const systemAdministratorQuery = query(collection(this.firestore, 'users'), where('jobTitle', '==', 'System Administrator'));
+    const systemAdministratorSnapshot = await getDocs(systemAdministratorQuery);
+    this.systemAdministratorCount = systemAdministratorSnapshot.size;
+
+    // Abfrage für Project Manager
+    const dataAnalystQuery = query(collection(this.firestore, 'users'), where('jobTitle', '==', 'Data Analyst'));
+    const dataAnalystSnapshot = await getDocs(dataAnalystQuery);
+    this.dataAnalystCount = dataAnalystSnapshot.size;
+}
 }

@@ -16,14 +16,13 @@ export class DialogAddUserComponent {
   loading = false;
   registrationDate!: Date;
 
-
+  jobTitles: string[] = ['Frontend Developer', 'Backend Developer', 'Project Manager', 'System Administrator', 'Data Analyst'];
+  
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firestore: Firestore) {
-    this.birthDate = new Date(); // Zum Beispiel hier initialisieren
     this.registrationDate = new Date();
   }
 
   saveUser() {
-    this.user.birthDate = this.birthDate.getTime();
     this.user.registrationDate = this.registrationDate.getTime();
     console.log('Registration Date:', this.registrationDate);
     console.log('Current user is', this.user)
@@ -47,7 +46,7 @@ export class DialogAddUserComponent {
       this.birthDateForm.valid &&
       this.streetAndHouseNumberForm.valid &&
       this.zipCodeForm.valid &&
-      this.cityForm.valid
+      this.cityForm.valid 
     );
   }
 

@@ -19,31 +19,64 @@
 
 
 
+  <div class="dashboard">
+    <div class="blue-dashboard" routerLink="/user">
+      <p class="center">USERS:</p>
+      <p class="amount-number">{{ userCount }}</p>
+    </div>
+  
+    <div class="blue-dashboard" routerLink="/notes">
+      <p class="center">NOTES:</p>
+      <p class="amount-number">{{ noteCount }}</p>
+    </div>
+  
+    <div class="blue-dashboard" routerLink="/company">
+      <p class="center">COMPANYS:</p>
+      <p class="amount-number">{{ companyCount }}</p>
+    </div>
+  
+    <div class="blue-dashboard" routerLink="/events">
+      <p class="center">EVENTS:</p>
+      <p class="amount-number">{{ eventCount }}</p>
+    </div>
+  </div>
+
+  <div class="balken"></div>
+
+
 <div class="dashboard">
-  <div class="blue-dashboard" routerLink="/user">
-    <p>USERS:</p>
-    <p class="amount-number">{{ userCount }}</p>
+  <div class="grey-dashboard" routerLink="/user">
+    <p class="center">Frontend Developers:</p>
+    <p class="amount-number">{{ frontendDeveloperCount }}</p>
   </div>
 
-  <div class="grey-dashboard" routerLink="/notes">
-    <p>NOTES:</p>
-    <p class="amount-number">{{ noteCount }}</p>
+  <div class="grey-dashboard" routerLink="/user">
+    <p class="center">Backend Developers:</p>
+    <p class="amount-number">{{ backendDeveloperCount }}</p>
   </div>
 
-  <div class="blue-dashboard" routerLink="/company">
-    <p>COMPANYS:</p>
-    <p class="amount-number">{{ companyCount }}</p>
+  <div class="grey-dashboard" routerLink="/user">
+    <p class="center">Projekt Managers:</p>
+    <p class="amount-number">{{ projectManagerCount }}</p>
   </div>
 
-  <div class="grey-dashboard" routerLink="/events">
-    <p>EVENTS:</p>
-    <p class="amount-number">{{ eventCount }}</p>
+  <div class="grey-dashboard" routerLink="/user">
+    <p class="center">System Administrators:</p>
+    <p class="amount-number">{{ systemAdministratorCount }}</p>
+  </div>
+
+  <div class="grey-dashboard" routerLink="/user">
+    <p class="center">Data Analysts:</p>
+    <p class="amount-number">{{ dataAnalystCount }}</p>
   </div>
 </div>
 
 
+<div class="balken"></div>
+
 
 <div class="charts">
   <canvas id="monthlySales"> </canvas>
+  <canvas id="pie"></canvas>
   <canvas id="employees"> </canvas>
 </div>

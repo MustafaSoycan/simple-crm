@@ -18,6 +18,13 @@
   </mat-form-field>
   <div>
 
+    <mat-form-field appearance="outline" class="full-width margin-bottom">
+      <mat-label>Job Title</mat-label>
+      <mat-select [(ngModel)]="user.jobTitle" name="jobTitle">
+        <mat-option *ngFor="let job of jobTitles" [value]="job">{{job}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <div>
       <mat-form-field appearance="outline" class="full-width margin-bottom">
         <mat-label>E-Mail</mat-label>

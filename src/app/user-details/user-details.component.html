@@ -1,10 +1,11 @@
 <div class="button-container">
-  <button routerLink="/user" class="back-button" mat-raised-button><img class="phone-image" src="assets/img/back.png" alt="" > 
+  <button routerLink="/user" class="back-button" mat-raised-button><img class="phone-image" src="assets/img/back.png"
+      alt="">
     Back to User Overview
   </button>
-  
+
   <button class="call-button" mat-raised-button (click)="openDeleteDialog()">
-    <img class="phone-image" src="assets/img/delete.png" alt="" > 
+    <img class="phone-image" src="assets/img/delete.png" alt="">
     Delete this User
   </button>
 </div>
@@ -39,31 +40,52 @@
 
 <div class="buttons">
   <div>
-    <button (click)="callPhoneNumber()" class="call-button" mat-raised-button><img class="phone-image" src="assets/img/call.png" alt=""> 
+    <button (click)="callPhoneNumber()" class="call-button" mat-raised-button><img class="phone-image"
+        src="assets/img/call.png" alt="">
       Call {{user.firstName}}
     </button>
-    
-    
-    <button (click)="sendEmail()" class="call-button" mat-raised-button><img class="phone-image" src="assets/img/mail.png" alt=""> 
+
+
+    <button (click)="sendEmail()" class="call-button" mat-raised-button><img class="phone-image"
+        src="assets/img/mail.png" alt="">
       Mail {{user.firstName}}
     </button>
   </div>
-  
+
 </div>
 
 
+<!---JOB TITLE-->
 
+<mat-card class="mt-32 center">
+  <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="menu">
+    <mat-icon>edit</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="editMenu()">Edit</button>
+  </mat-menu>
+  <mat-card-header>
+    <mat-label class="center">Job Title</mat-label>
+
+  </mat-card-header>
+
+  <mat-card-content>
+    {{user.jobTitle}}
+  </mat-card-content>
+
+</mat-card>
 
 <!-- ---------------ASSIGN USER TO COMPANY------------------>
 <mat-card class="mt-32">
   <mat-form-field>
-  <mat-label>Assign to Company</mat-label>
-  <mat-select [(ngModel)]="selectedCompanyId">
-    <mat-option *ngFor="let company of companys" [value]="company.id">{{ company.name }}</mat-option>
-  </mat-select>
-</mat-form-field>
+    <mat-label>Assign to Company</mat-label>
+    <mat-select [(ngModel)]="selectedCompanyId">
+      <mat-option *ngFor="let company of companys" [value]="company.id">{{ company.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-<button mat-raised-button (click)="assignUserToCompany()">Assign</button>
+  <button mat-raised-button (click)="assignUserToCompany()">Assign</button>
 
 
 </mat-card>
@@ -84,7 +106,7 @@
 
   <mat-card-header>
     <mat-card-title>
-        Adress 
+      Adress
     </mat-card-title>
 
   </mat-card-header>

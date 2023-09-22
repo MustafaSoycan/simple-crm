@@ -63,12 +63,14 @@
       <tr class="info-table">
         <th>Name</th>
         <th>E-Mail</th>
+        <th>Job Title</th>
         <th>City</th>
       </tr>
 
       <tr class="user" routerLink='{{user.id}}' *ngFor="let user of filteredUsers">
         <td>{{user.firstName}} {{user.lastName}}</td>
         <td>{{user.email}}</td>
+        <td>{{user.jobTitle}}</td>
         <td>{{user.city}}</td>
       </tr>
 
@@ -77,6 +79,6 @@
   </mat-card-content>
 </mat-card>
 
-<button (click)="openDialog()" class="add-user-button" mat-fab color="primary" matTooltip="Add User">
+<button (click)="openDialog()" class="add-user-button" mat-fab color="warn" matTooltip="Add User">
   <mat-icon>add</mat-icon>
 </button>
