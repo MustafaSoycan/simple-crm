@@ -3,7 +3,7 @@
     background-color: rgb(247,249,252);}
 
 .menu-icon{
-        cursor: pointer;;
+        cursor: pointer;
 }
 
 .sidenav{
@@ -24,6 +24,8 @@
 mat-toolbar-row, mat-toolbar{
     min-height: 56px;
     height: 56px;
+
+    background-color: #C2185B;
 }
 
 .menu-items{

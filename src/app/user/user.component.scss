@@ -42,7 +42,7 @@ mat-card-content {
 //---------------------- INFORMATION CONTAINER ---------------------- //
 
 .customer-information{
-    border: 5px solid rgb(63,81,181);
+    border: 5px solid grey;
     padding: 16px;
     margin-bottom: 32px;
     background-color: white;
@@ -166,5 +166,5 @@ mat-card-content {
     height: 25px;
     width: 100% !important;
     margin-bottom: 32px;
-    background: linear-gradient(to right, rgb(54, 152, 244) 0%, rgb(42, 127, 206) 50%, rgb(32, 105, 173) 75%, rgb(25, 87, 145)100%);
+    background: linear-gradient(to right, #F8BBD0, #e64379 50%, #d13e6f 75%, #d62f72 100%);
 }

@@ -1,4 +1,4 @@
-.header-container{
+.header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -28,7 +28,7 @@ mat-card-content {
 //--------------------------- DASHBOARD INFORMATION ------------------------ //
 
 .dashboard-information {
-    border: 5px solid rgb(63, 81, 181);
+    border: 5px solid grey;
     padding: 16px;
     background-color: white;
     margin-bottom: 32px;
@@ -36,185 +36,187 @@ mat-card-content {
 
 @keyframes slideInFromRight {
     from {
-      transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
     }
+
     to {
-      transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
     }
-  }
-  
-  .slide-in {
+}
+
+.slide-in {
     animation: slideInFromRight 0.4s ease-in-out;
-  }
+}
 
 // ------------------------------------ DASHBOARD ---------------------------- //
-.dashboard{
+
+.complete-dashboard{
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.dashboard-1 {
     display: flex;
     justify-content: space-between;
-    
-    margin-bottom: 64px;
+
+    margin-bottom: 5vh;
+
+    background-color: rgb(239, 243, 245);
+    border: 5px solid rgb(233, 234, 235);
+    border-radius: 10px;
+
+    .container {
+        width: 20em;
+        margin: 16px;
+
+        transition: transform 0.3s ease,
+            box-shadow 0.3s ease,
+            width 0.3s ease,
+            height 0.3s ease;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+
+        &:hover {
+            transform: scale(1.01);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+    }
+
+    .text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: #C2185B;
+        color: white;
+
+        padding: 8px;
+        font-size: 24px;
+        font-weight: bold;
+        height: 3vh;
+    }
+
+    .number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: white;
+        color: black;
+
+        padding: 8px;
+        font-size: 40px;
+        font-weight: bold;
+        height: 10vh;
+    }
 }
 
-.developers-dashboard {
+.text-2{
     display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    padding: px;
-    width: fit-content;
- }
+    justify-content: center;
+    align-items: center;
 
-.crm-dashboard {
-   display: flex;
-   flex-direction: column;
-  
-   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-   padding: px;
-   width: fit-content;
-}
-
-.crm-dashboard-first-row{
-    display: flex;
-}
-
-.crm-dashboard-second-row{
-    display: flex;
-}
-
-.blue-dashboard {
-    background-color: rgb(63, 81, 181);
+    background-color: #F8BBD0;
     color: white;
+
+    padding: 8px;
     font-size: 24px;
-    font-weight: 600;
-    border: 4px solid rgb(63, 81, 181);
-
-    min-height: 10vh;
-    max-height: 10vh;
-    min-width: 8vw;
-    max-width: 8vw;
-    padding: 16px;
-    margin: 16px;
-
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: center;
-
-    .amount-number {
-        font-size: 70px;
-    }
-
-    transition: transform 0.3s ease,
-    box-shadow 0.3s ease,
-    width 0.3s ease,
-    height 0.3s ease;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
-
-    &:hover {
-        transform: scale(1.1);
-        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
-        cursor: pointer;
-    }
+    font-weight: bold;
+    height: 3vh;
 }
 
-.grey-dashboard {
-    color: black;
-    font-size: 24px;
-    font-weight: 600;
-    border: 4px solid rgb(173, 179, 214);
-
-    
-    min-height: 10vh;
-    max-height: 10vh;
-    min-width: 8vw;
-    max-width: 8vw;
-    padding: 16px;
-    margin: 16px;
-
+.dashboard-1{
     display: flex;
-    justify-content: space-evenly;
     flex-direction: column;
-    align-items: center;
-
-    .amount-number {
-        font-size: 70px;
-    }
-
-    transition: transform 0.3s ease,
-    box-shadow 0.3s ease,
-    width 0.3s ease,
-    height 0.3s ease;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
-
-    &:hover {
-        transform: scale(1.1);
-        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
-        cursor: pointer;
-    }
 }
 
+.first-row{
+    display: flex;
+}
+
+.second-row{
+    display: flex;
+}
+// ------------------------ QUESTION MARK -------------------- //
 
 
-
-.question-mark{
+.question-mark {
     height: 45px;
     width: 45px;
 
     margin-left: 16px;
     margin-bottom: 32px;
 
-    &:hover{
+    &:hover {
         cursor: pointer;
         opacity: 0.9;
     }
 }
 
-
-
-
-
 //--------------------------- CHART ------------------------- //
 
-.charts{
+
+
+.chart {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+
+    padding: 16px;
+
+    margin-bottom: 5vh;
+
+    background-color: rgb(239, 243, 245);
+    border: 5px solid rgb(233, 234, 235);
+    border-radius: 10px;
 }
 
-#monthlySales{
+#monthlySales {
+    height: 420px !important;
+    width: 850px !important;
+
+    background-color: white;
+    padding: 16px;
+}
+
+#employees {
     height: 400px !important;
-    width: 600px !important;
+    width: 800px !important;
+
+    background-color: white;
+    padding: 16px;
+
 }
 
-#employees{
-    height: 400px !important;
-    width: 600px !important;
-}
-
-#pie{
+#pie {
     height: 400px !important;
     width: 400px !important;
+
+    background-color: white;
+    padding: 16px;
 }
 
-.container{
-
-   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
 
 
-  // ------------------------ BALKEN ---------------- //
-  .balken {
+
+// ------------------------ BALKEN ---------------- //
+.balken {
     height: 25px;
     width: 100% !important;
     margin-bottom: 64px;
-    background: linear-gradient(to right, rgb(54, 152, 244) 0%, rgb(42, 127, 206) 50%, rgb(32, 105, 173) 75%, rgb(25, 87, 145)100%);
+    background: linear-gradient(to right, #F8BBD0, #e64379 50%, #d13e6f 75%, #d62f72 100%);
 }
 
-.center{
+.center {
     text-align: center;
 }
 
 
-.date{
+.date {
     font-weight: 100;
     color: grey;
     font-size: 32px;
+
+    margin-left: 8px;
 }

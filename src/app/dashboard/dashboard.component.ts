@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
     this.updateUserCountsByJobTitle();
 
 
-    console.log('This is a test if the companys are global:', this.companys)
+   
 
     this.updateTime();
     setInterval(() => this.updateTime(), 1000);
@@ -71,7 +71,7 @@ export class DashboardComponent implements OnInit {
       data.push(this.companys[i]['monthlySales'])
     }
 
-    const barColors = ['rgb(63,81,181)', 'rgb(43,100,181)', 'rgb(33,150,243)', 'rgb(33,150,223)', 'rgb(232,67,35)']
+    const barColors = ['#C2185B', '#F8BBD0', '#E91E63', '#BDBDBD', '#212121']
 
     new Chart("monthlySales", {
       type: 'bar',
@@ -105,7 +105,7 @@ export class DashboardComponent implements OnInit {
       data.push(this.companys[i]['amountEmployees'])
     }
 
-    const barColors = ['rgb(212,67,35)', 'orange', 'rgb(182,67,35)', 'rgb(250,215,8)']
+    const barColors = ['#212121', '#757575', '#E91E63', '#F8BBD0', '#C2185B']
 
     new Chart("employees", {
       type: 'bar',
@@ -130,8 +130,12 @@ export class DashboardComponent implements OnInit {
   }
 
   renderThirdChart() {
-    const ctx = document.getElementById('pieChart') as HTMLCanvasElement;
-    new Chart(ctx, {
+    // Zerstöre die vorherige Chart.js-Instanz, falls vorhanden
+
+
+  Chart.getChart("pieChart")?.destroy();
+
+    new Chart("pieChart", {
       type: 'doughnut',
       data: {
         labels: ['Hoch', 'Mittel', 'Niedrig'],

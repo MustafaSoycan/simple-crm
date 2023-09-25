@@ -1,31 +1,25 @@
 <div class="header-container">
-  <div class="headline">Events <img src="assets/img/event.png" alt="picture of user-icon"></div>
+  <div class="headline">Events</div>
   <img class="question-mark" (click)="toggleInstructions()" src="assets/img/question.png"
     alt="picture of question mark">
 </div>
 
 <div class="customer-information" [ngClass]="{'slide-in': showInstructions}" *ngIf="showInstructions">
-  <h2> <b> Welcome to the Customer Overview page of my CRM system! </b> </h2>
+  <h2> <b> Welcome to the Events Overview page of my CRM system! </b> </h2>
 
 
-  <b> This page serves as a central hub for managing your contacts efficiently. Here's a simple guide on how to navigate
-    and
-    utilize this page: </b> <br> <br>
+  <b> This page serves as a central hub for efficiently managing your events. Here's a simple guide on how to navigate and utilize this page: </b> <br> <br>
 
-  <b> Adding Contacts: </b> <br>
-  To begin, click on the "Add Contact" button, located on the bottom right corner of the page. Fill in the necessary
-  details
-  such as the person's name, contact information, and any additional relevant data. Once you're done, hit "Save" to add
-  the contact to your list. <br>
+  <b> Adding Events: </b> <br>
+  To get started, click on the "Add Event" button, located at the bottom right corner of the page. Fill in the necessary event details, 
+  including the event name, date, location, and any additional relevant information. Once you're done, hit "Save" to add the event to your list. <br>
 
-  <b>Viewing Contacts:</b> <br>
-  The main section of the page displays a list of all your contacts. You'll find essential information like names and
-  key details here. Scroll through this list to get a quick overview of your contacts.<br>
+  <b>Viewing Events:</b> <br>
+  The main section of the page displays a list of all your events. You'll find essential information like event names and key details here. Scroll through this list to get a quick overview of your events.<br>
 
-  <b>Editing Contacts: </b> <br>
-  If you need to update any information for a specific contact, simply click on their name in the list. This action will
-  take you to an editable view of their details. Here, you can make changes, corrections, or updates as necessary. Don't
-  forget to hit "Save" after making your edits.<br>
+  <b>Detailed Event Information: </b> <br>
+  When you click on an event, you'll be able to view more detailed information about that specific event, including attendees, 
+  schedule, and any related data. You also have the option to delete the event if necessary to keep your event list up to date.<br>
 </div>
 
 <div class="balken"></div>
@@ -71,7 +65,7 @@
         </p>
 
         <div class="assigned-user" *ngIf="event.assignedUsers.length > 0; else noUsersAssigned">
-          <b class="date"> {{ event.date.toDate() }}</b>
+          <b class="date"> {{ getFormattedDate(event.date.toDate()) }}</b>
         </div>
       </div>
 

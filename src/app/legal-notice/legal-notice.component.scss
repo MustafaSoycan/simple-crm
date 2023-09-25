@@ -15,7 +15,15 @@
 }
 
 .legal-notice{
-    padding: 32px;
-    border: 5px solid rgb(63,81,181);
+    padding: 16px;
+    border: 5px solid #FFFFFF;
     background-color: white;
+}
+
+// ------------------------ BALKEN ---------------- //
+.balken {
+    height: 25px;
+    width: 100% !important;
+    margin-bottom: 32px;
+    background: linear-gradient(to right, #F8BBD0, #e64379 50%, #d13e6f 75%, #d62f72 100%);
 }
