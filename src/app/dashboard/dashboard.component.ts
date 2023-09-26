@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
   projectManagerCount: number = 0;
   systemAdministratorCount: number = 0;
   dataAnalystCount: number = 0;
+  designerCount: number = 0;
 
   constructor(private firestore: Firestore, private datePipe: DatePipe) { }
 
@@ -226,6 +227,11 @@ export class DashboardComponent implements OnInit {
     const dataAnalystQuery = query(collection(this.firestore, 'users'), where('jobTitle', '==', 'Data Analyst'));
     const dataAnalystSnapshot = await getDocs(dataAnalystQuery);
     this.dataAnalystCount = dataAnalystSnapshot.size;
+
+    // Abfrage für Project Manager
+    const designerQuery = query(collection(this.firestore, 'users'), where('jobTitle', '==', 'UI/UX Designer'));
+    const designerSnapshot = await getDocs(designerQuery);
+    this.designerCount = designerSnapshot.size;
   }
 
    getFormattedDate(): string {

@@ -16,7 +16,7 @@ export class DialogAddUserComponent {
   loading = false;
   registrationDate!: Date;
 
-  jobTitles: string[] = ['Frontend Developer', 'Backend Developer', 'Project Manager', 'System Administrator', 'Data Analyst'];
+  jobTitles: string[] = ['Frontend Developer', 'Backend Developer', 'Project Manager', 'System Administrator', 'Data Analyst', 'UI/UX Designer'];
   
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firestore: Firestore) {
     this.registrationDate = new Date();
