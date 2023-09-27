@@ -54,7 +54,7 @@ export class LoginComponent {
       this.loadingScreen.nativeElement.style.display = 'none';
       this.projectTitleContainer.nativeElement.style.display = 'flex';
       this.loginContainer.nativeElement.style.display = 'flex';
-    }, 3000);
+    }, 2500);
   }
 
 }
