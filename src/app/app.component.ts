@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { Router, NavigationEnd } from '@angular/router';
+import { DialogLogOutComponent } from './dialog-log-out/dialog-log-out.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'simple-crm';
   @ViewChild('drawer') drawer: MatDrawer | any; // Referenz auf das MatDrawer-Element
-  constructor(private router: Router) {}
+  constructor(private router: Router, public dialog: MatDialog) {}
 
   ngOnInit(): void {
   }
@@ -22,5 +24,10 @@ export class AppComponent implements OnInit {
   
     // Prüfen, ob es sich um den Login-Routerlink handelt
     return currentRoute !== '/login' && currentRoute !== '/register';
+  }
+
+
+  openLogOutDialog(){
+    const dialog = this.dialog.open(DialogLogOutComponent)
   }
 }

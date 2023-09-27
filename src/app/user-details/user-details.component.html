@@ -3,11 +3,6 @@
       alt="">
     Back to User Overview
   </button>
-
-  <button class="call-button" mat-raised-button (click)="openDeleteDialog()">
-    <img class="phone-image" src="assets/img/delete.png" alt="">
-    Delete this User
-  </button>
 </div>
 
 
@@ -32,6 +27,8 @@
       <br>
       {{user.email}}
     </div>
+
+    
   </mat-card-content>
 </mat-card>
 
@@ -52,6 +49,10 @@
     </button>
   </div>
 
+  <button class="delete-button" mat-raised-button (click)="openDeleteDialog()">
+    <img class="phone-image" src="assets/img/delete.png" alt="">
+    Delete this User
+  </button>
 </div>
 
 
@@ -73,7 +74,7 @@
 <!-- ---------------ASSIGN USER TO COMPANY------------------>
 <mat-card class="mt-32">
   <mat-form-field>
-    <mat-label>Assign to Company</mat-label>
+    <mat-label>Click here to choose a Company and click on the assign button below. (If you want to assign User to a Company)</mat-label>
     <mat-select [(ngModel)]="selectedCompanyId">
       <mat-option *ngFor="let company of companys" [value]="company.id">{{ company.name }}</mat-option>
     </mat-select>

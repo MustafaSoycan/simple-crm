@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
@@ -15,6 +15,15 @@ export class LoginComponent {
   loading = false;
 
   hide = true;
+
+
+  @ViewChild('loadingScreen')
+  loadingScreen!: ElementRef;
+  @ViewChild('projectTitleContainer')
+  projectTitleContainer!: ElementRef;
+  @ViewChild('loginContainer')
+  loginContainer!: ElementRef;
+
   constructor(private router: Router, private firestore: Firestore) {}
 
   login() {
@@ -37,4 +46,15 @@ export class LoginComponent {
         
       });
   }
+
+
+  ngOnInit() {
+    setTimeout(() => {
+      // Entfernen Sie das "display: none" von den Containern
+      this.loadingScreen.nativeElement.style.display = 'none';
+      this.projectTitleContainer.nativeElement.style.display = 'flex';
+      this.loginContainer.nativeElement.style.display = 'flex';
+    }, 3000);
+  }
+
 }

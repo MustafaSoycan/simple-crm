@@ -1,7 +1,11 @@
+
+
 .project-title-container{
     display: flex;
     justify-content: center;
     margin-top: 100px;
+
+    display: none;
 }
 
 
@@ -10,19 +14,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(194,24,91);
-    min-width: 308px;
-    max-width: 308px;
+    
+    
+    
     border-radius: 10px;
     padding-top: 32px;
     padding-bottom: 32px;
 
     .title{
-        font-size: 40px;
+        font-size: 48px;
         font-weight: bold;
-        color: white;
+        color: rgb(225,10,108);
     }
 
+    img{
+        height: 70px;
+        width: auto;
+
+        vertical-align: middle;
+    }
 }
 
 .login-container {
@@ -32,8 +42,8 @@
     justify-content: center;
     height: 80vh;
 
-
-
+    
+    display: none;
     h2{
         color: rgb(63,81,181);
         font-weight: 450;
@@ -113,4 +123,32 @@
 .input-fields{
     display: flex;
     flex-direction: column;
+}
+
+//---------------------- LOADING SCREEN ------------------------- //
+
+.loading-screen{
+    background-color: rgb(247,249,252);
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+     /* Hier fügen Sie die Animation hinzu */
+     img {
+        animation: spin 4s linear infinite;
+    }
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

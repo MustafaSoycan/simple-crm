@@ -1,0 +1,7 @@
+<div class="dialog-container">
+    <h2>Are you sure you want to Log out?</h2>
+    <div mat-dialog-actions class="center">
+      <button [disabled]="loading" mat-button (click)="cancelLogout()">No</button>
+      <button [disabled]="loading" mat-button cdkFocusInitial (click)="confirmLogout()">Yes</button>
+    </div>
+  </div>

@@ -50,6 +50,7 @@ import { DialogDeleteEventComponent } from './dialog-delete-event/dialog-delete-
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { DialogLogOutComponent } from './dialog-log-out/dialog-log-out.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     EventDetailsComponent,
     DialogDeleteEventComponent,
     LoginComponent,
-    RegisterComponent  
+    RegisterComponent,
+    DialogLogOutComponent  
   ],
   imports: [  
     BrowserModule,
