@@ -26,6 +26,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    font-size: 32px;
+    color: rgb(97, 96, 96);
+
+    img{
+        margin-left: 8px;
+        height: 40px;
+    }
 }
 
 mat-toolbar-row, mat-toolbar{
