@@ -2,18 +2,18 @@
 <mat-drawer-container class="mat-drawer-container" autosize>
   <mat-drawer #drawer class="sidenav" [opened]="showSidebar()" mode="side" *ngIf="showSidebar()">
     <div class="logo-container">
-      Simple CRM
+      <span>Simple CRM</span>
       <img src="./assets/img/favIcon.png">
     </div>
 
     <ul class="menu-items">
-      <li routerLink="/dashboard" routerLinkActive="active"> <mat-icon>dashboard</mat-icon>Dashboard</li>
-      <li routerLink="/user" routerLinkActive="active"><mat-icon>perm_identity</mat-icon>Users</li>
-      <li routerLink="/company" routerLinkActive="active"><mat-icon>store</mat-icon>Companys</li>
-      <li routerLink="/events" routerLinkActive="active"><mat-icon>event</mat-icon>Events</li>
-      <li routerLink="/notes" routerLinkActive="active"><mat-icon>note_add</mat-icon>Notes</li>
-      <li routerLink="/legal-notice" routerLinkActive="active"><mat-icon>contact_support</mat-icon>Legal Notice</li>
-      <li class="log-out" (click)="openLogOutDialog()"><mat-icon>login</mat-icon>Logout</li>
+      <li routerLink="/dashboard" routerLinkActive="active"> <mat-icon>dashboard</mat-icon><span>Dashboard</span></li>
+      <li routerLink="/user" routerLinkActive="active"><mat-icon>perm_identity</mat-icon><span>Users</span></li>
+      <li routerLink="/company" routerLinkActive="active"><mat-icon>store</mat-icon><span>Companys</span></li>
+      <li routerLink="/events" routerLinkActive="active"><mat-icon>event</mat-icon><span>Events</span></li>
+      <li routerLink="/notes" routerLinkActive="active"><mat-icon>note_add</mat-icon><span>Notes</span></li>
+      <li routerLink="/legal-notice" routerLinkActive="active"><mat-icon>contact_support</mat-icon><span>Legal Notice</span></li>
+      <li class="log-out" (click)="openLogOutDialog()"><mat-icon>login</mat-icon><span>Logout</span></li>
     </ul>
   </mat-drawer>
 

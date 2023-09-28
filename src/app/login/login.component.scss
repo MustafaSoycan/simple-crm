@@ -1,6 +1,4 @@
-
-
-.project-title-container{
+.project-title-container {
     display: flex;
     justify-content: center;
     margin-top: 100px;
@@ -14,25 +12,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
-    
+    background-color: rgb(194, 24, 91);
+    min-width: 340px;
+    max-width: 340px;
     border-radius: 10px;
     padding-top: 32px;
     padding-bottom: 32px;
 
-    .title{
-        font-size: 48px;
+    .title {
+        font-size: 40px;
         font-weight: bold;
-        color: rgb(225,10,108);
+        color: white;
     }
 
-    img{
-        height: 70px;
-        width: auto;
-
-        vertical-align: middle;
-    }
 }
 
 .login-container {
@@ -42,17 +34,27 @@
     justify-content: center;
     height: 80vh;
 
-    
+
     display: none;
-    h2{
-        color: rgb(63,81,181);
-        font-weight: 450;
-        font-size: 48px;
-        margin-bottom: 64px;
+
+    h2 {
+        background-color: rgb(63, 81, 181);
+        font-size: 32px;
+        font-weight: bold;
+        color: white;
+
+        margin-bottom: 32px;
+        border-radius: 10px;
+
+        
+
+        padding: 16px;
+
+        text-align: center;
     }
 
 
-    .formular-card{
+    .formular-card {
         padding: 48px;
     }
 }
@@ -70,7 +72,7 @@
     justify-content: center;
 }
 
-.not-a-user-card{
+.not-a-user-card {
     padding: 24px;
     width: 343px;
     margin-top: 32px;
@@ -86,16 +88,17 @@
     a {
         text-decoration: none;
         margin-left: 8px;
-        box-shadow: inset 0 0 0 0 rgb(63,81,181);
-        color: rgb(63,81,181);
+        box-shadow: inset 0 0 0 0 rgb(63, 81, 181);
+        color: rgb(63, 81, 181);
         padding: 0 .25rem;
         transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
         padding-left: 8px;
         padding-right: 8px;
         padding-top: 4px;
         padding-bottom: 4px;
+
         &:hover {
-            box-shadow: inset 100px 0 0 0 rgb(63,81,181);
+            box-shadow: inset 100px 0 0 0 rgb(63, 81, 181);
             color: white;
         }
     }
@@ -105,7 +108,7 @@
 
 //-------------------- ERROR MESSAGE --------------------- //
 
-.error-message{
+.error-message {
     margin-bottom: 16px;
     width: 247px;
     color: red;
@@ -115,20 +118,20 @@
 
 //---------------------- PROGRESS BAR -------------------- //
 
-.progress-bar{
+.progress-bar {
     margin-bottom: 16px;
 }
 
 
-.input-fields{
+.input-fields {
     display: flex;
     flex-direction: column;
 }
 
 //---------------------- LOADING SCREEN ------------------------- //
 
-.loading-screen{
-    background-color: rgb(247,249,252);
+.loading-screen {
+    background-color: rgb(247, 249, 252);
     height: 100vh;
     width: 100%;
 
@@ -137,8 +140,8 @@
     align-items: center;
 
 
-     /* Hier fügen Sie die Animation hinzu */
-     img {
+    /* Hier fügen Sie die Animation hinzu */
+    img {
         animation: spin 4s linear infinite;
     }
 }
@@ -148,6 +151,7 @@
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }

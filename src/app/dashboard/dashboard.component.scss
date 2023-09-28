@@ -69,7 +69,7 @@ mat-card-content {
     .container {
         width: 20em;
         margin: 16px;
-
+        text-align: center;
         transition: transform 0.3s ease,
             box-shadow 0.3s ease,
             width 0.3s ease,
@@ -173,24 +173,23 @@ mat-card-content {
 }
 
 #monthlySales {
-    height: 420px !important;
-    width: 850px !important;
+    height: 32em !important;
+    width: 60em !important;
 
     background-color: white;
     padding: 16px;
 }
 
 #employees {
-    height: 400px !important;
-    width: 800px !important;
+    height: 32em !important;
+    width: 60em !important;
 
     background-color: white;
     padding: 16px;
-
 }
 
 #pie {
-    height: 400px !important;
+    height: 32em !important;
     width: 400px !important;
 
     background-color: white;
@@ -220,3 +219,46 @@ mat-card-content {
 
     margin-left: 8px;
 }
+
+
+
+//-------------------------- RESPONSIVE-------------------//
+
+
+//---------------- 2300 PX ------------------ //
+
+@media only screen and (max-width: 2300px) {
+#monthlySales{
+    width: 50em !important;
+    height: 27em !important;
+}
+
+#employees{
+    width: 50em !important;
+    height: 27em !important;
+}
+
+.dashboard-1{
+    .container{
+        width: 17em;
+    }
+}
+}
+
+
+//---------------- 2025 PX ------------------ //
+
+@media only screen and (max-width: 2025px) {
+
+    .dashboard-1{
+        .container{
+            width: 14em;
+            height: auto;
+        }
+    }
+
+
+    .complete-dashboard{
+        flex-wrap: wrap;
+    }
+    }
